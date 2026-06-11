@@ -64,10 +64,11 @@
         }
 
         .hotel-logo-img {
-            height: 60px; /* Logonun kibar durması için ideal boy */
+            height: 60px;
             width: auto;
             border-radius: 4px;
-            border: 1px solid rgba(202, 164, 97, 0.3);
+            border: 1px solid rgba(202, 164, 97, 0.4);
+            object-fit: cover;
         }
 
         .hotel-logo-text {
@@ -119,10 +120,10 @@
             color: var(--royal-gold);
         }
 
-        /* Giriş Ekranı (Hero) */
+        /* Giriş Ekranı (Hero) - ana sayfa görsel.jpeg entegre edildi */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920') no-repeat center center/cover;
+            background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.8)), url('https://i.ibb.co/3ykpYvLq/ana-sayfa-gorsel.jpg') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -136,7 +137,7 @@
             margin-bottom: 15px;
             color: #ffffff;
             font-weight: 400;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.7);
         }
 
         .hero p {
@@ -146,6 +147,7 @@
             letter-spacing: 6px;
             color: var(--royal-gold);
             text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
         /* Butonlar */
@@ -160,13 +162,14 @@
             letter-spacing: 2px;
             transition: all 0.4s ease;
             border: 1px solid var(--royal-gold);
-            box-shadow: 0 0 15px rgba(202, 164, 97, 0.1);
+            box-shadow: 0 0 15px rgba(202, 164, 97, 0.2);
+            backdrop-filter: blur(3px);
         }
 
         .btn-main:hover {
             background-color: var(--royal-gold);
             color: var(--royal-dark);
-            box-shadow: 0 0 25px rgba(202, 164, 97, 0.4);
+            box-shadow: 0 0 25px rgba(202, 164, 97, 0.5);
         }
 
         .btn-room {
@@ -375,7 +378,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            filter: invert(90%) hue-rotate(180deg); /* Haritayı gece/koyu moda uyarlama büyüsü */
+            filter: invert(90%) hue-rotate(180deg);
         }
 
         .btn-direction {
@@ -456,7 +459,7 @@
     <!-- Üst Menü -->
     <header>
         <a href="#" class="logo-container">
-            <!-- rl logo 1.jpeg buraya entegre edildi -->
+            <!-- Yenilenen, kesintisiz çalışan güvenli logo bağlantısı -->
             <img src="https://i.ibb.co/6R68z1y2/rl-logo-1.jpg" alt="RL Royal Palace Logo" class="hotel-logo-img">
             <div class="hotel-logo-text">
                 RL ROYAL PALACE
@@ -471,7 +474,7 @@
         </nav>
     </header>
 
-    <!-- Giriş Alanı -->
+    <!-- Giriş Alanı (Arka planda senin harika odan var) -->
     <section class="hero" id="anasayfa" style="max-width: 100%; width: 100%;">
         <h1>RL Royal Palace Hotel</h1>
         <p>Ankara Sincan'da Asil ve Kusursuz Bir Konaklama Deneyimi</p>
@@ -488,7 +491,7 @@
         <div class="grid-3">
             <!-- Oda 1 -->
             <div class="room-card">
-                <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800');"></div>
+                <div class="room-img" style="background-image: url('https://i.ibb.co/3ykpYvLq/ana-sayfa-gorsel.jpg');"></div>
                 <div class="room-info">
                     <h3>1+1 Suit Kral Dairesi</h3>
                     <ul class="room-features-list">
@@ -593,7 +596,6 @@
                 <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritada Yol Tarifi Al</a>
             </div>
             
-            <!-- Koyu Mod Google Haritası -->
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.8837370836526!2d32.57688!3d39.96675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDU4JzAwLjMiTiAzMsKwMzQnMzYuOCJF!5e0!3m2!1str!2str!4v1717770000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
