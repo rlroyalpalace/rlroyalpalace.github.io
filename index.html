@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RL Royal Palace Hotel | Sincan, Ankara - Lüks Butik Otel</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome İkonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -65,10 +63,11 @@
 
         .hotel-logo-img {
             height: 60px;
-            width: auto;
+            width: 60px;
             border-radius: 4px;
             border: 1px solid rgba(202, 164, 97, 0.4);
             object-fit: cover;
+            background-color: #000;
         }
 
         .hotel-logo-text {
@@ -120,16 +119,42 @@
             color: var(--royal-gold);
         }
 
-        /* Giriş Ekranı (Hero) - Kendi Klasörünüzdeki Görsel Bağlandı */
+        /* Giriş Ekranı (Hero) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.8)), url('oda1.jpg') no-repeat center center/cover;
+            background-color: var(--royal-dark);
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            overflow: hidden;
+        }
+
+        /* Akıllı ve Garantili Arka Plan Resim Katmanı */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.85));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
         }
 
         .hero h1 {
@@ -164,6 +189,7 @@
             border: 1px solid var(--royal-gold);
             box-shadow: 0 0 15px rgba(202, 164, 97, 0.2);
             backdrop-filter: blur(3px);
+            display: inline-block;
         }
 
         .btn-main:hover {
@@ -255,14 +281,19 @@
             box-shadow: 0 10px 30px rgba(202, 164, 97, 0.08);
         }
 
-        .room-img {
+        .room-img-container {
             height: 250px;
-            background-size: cover;
-            background-position: center;
+            width: 100%;
+            overflow: hidden;
             position: relative;
         }
 
-        .room-img::after {
+        .room-img-container img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .room-img-container::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -456,11 +487,9 @@
 </head>
 <body>
 
-    <!-- Menü Başlangıcı -->
     <header>
         <a href="#" class="logo-container">
-            <!-- Doğrudan GitHub'dan çekilen kalıcı logo -->
-            <img src="logo.jpg" alt="RL Royal Palace Logo" class="hotel-logo-img">
+            <img src="logo.jpg" onerror="this.src='logo.jpeg'; this.onerror=function(){this.src='logo.png';};" alt="RL Royal Palace Logo" class="hotel-logo-img">
             <div class="hotel-logo-text">
                 RL ROYAL PALACE
                 <span>HOTEL & SUITES</span>
@@ -474,14 +503,18 @@
         </nav>
     </header>
 
-    <!-- Giriş Alanı - Doğrudan GitHub'dan çekilen oda görseli -->
     <section class="hero" id="anasayfa" style="max-width: 100%; width: 100%;">
-        <h1>RL Royal Palace Hotel</h1>
-        <p>Ankara Sincan'da Asil ve Kusursuz Bir Konaklama Deneyimi</p>
-        <a href="https://wa.me/905404001406?text=Merhaba,%20müsaitlik%20durumu%20ve%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-main">Doğrudan Rezervasyon Yap</a>
+        <div class="hero-bg">
+            <img src="oda1.jpg" onerror="this.src='oda1.jpeg'; this.onerror=function(){this.src='oda1.png';};" alt="RL Royal Palace Oda">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>RL Royal Palace Hotel</h1>
+            <p>Ankara Sincan'da Asil ve Kusursuz Bir Konaklama Deneyimi</p>
+            <a href="https://wa.me/905404001406?text=Merhaba,%20müsaitlik%20durumu%20ve%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-main">Doğrudan Rezervasyon Yap</a>
+        </div>
     </section>
 
-    <!-- Odalarımız Bölümü -->
     <section id="odalar">
         <div class="section-header">
             <h2 class="section-title">Saray Konforunda Odalarımız</h2>
@@ -489,9 +522,10 @@
         </div>
         
         <div class="grid-3">
-            <!-- Oda 1 -->
             <div class="room-card">
-                <div class="room-img" style="background-image: url('oda1.jpg');"></div>
+                <div class="room-img-container">
+                    <img src="oda1.jpg" onerror="this.src='oda1.jpeg'; this.onerror=function(){this.src='oda1.png';};" alt="1+1 Suit Kral Dairesi">
+                </div>
                 <div class="room-info">
                     <h3>1+1 Suit Kral Dairesi</h3>
                     <ul class="room-features-list">
@@ -504,9 +538,10 @@
                 </div>
             </div>
 
-            <!-- Oda 2 (Diğer fotoğrafları yüklediğinde burayı da değiştireceğiz) -->
             <div class="room-card">
-                <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800');"></div>
+                <div class="room-img-container">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800" alt="Standart Deluxe Oda">
+                </div>
                 <div class="room-info">
                     <h3>Standart Deluxe Oda</h3>
                     <ul class="room-features-list">
@@ -519,9 +554,10 @@
                 </div>
             </div>
 
-            <!-- Oda 3 -->
             <div class="room-card">
-                <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800');"></div>
+                <div class="room-img-container">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800" alt="Single Tek Kişilik Oda">
+                </div>
                 <div class="room-info">
                     <h3>Single Tek Kişilik Oda</h3>
                     <ul class="room-features-list">
@@ -536,7 +572,6 @@
         </div>
     </section>
 
-    <!-- Hizmetlerimiz Bölümü -->
     <div class="services-bg" id="hizmetler">
         <section>
             <div class="section-header">
@@ -579,7 +614,6 @@
         </section>
     </div>
 
-    <!-- İletişim Bölümü -->
     <section id="iletisim">
         <div class="section-header">
             <h2 class="section-title">İletişim & Lokasyon</h2>
@@ -602,7 +636,6 @@
         </div>
     </section>
 
-    <!-- Yüzen WhatsApp Butonu -->
     <a href="https://wa.me/905404001406?text=Merhaba,%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
