@@ -90,7 +90,6 @@
             margin-top: 2px;
         }
 
-        /* Navigasyon Linkleri (Masaüstü) */
         nav {
             display: flex;
             align-items: center;
@@ -128,7 +127,6 @@
             color: var(--royal-gold);
         }
 
-        /* Mobil Menü Butonu (Hamburger) */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -512,32 +510,50 @@
             color: #ffffff;
         }
 
-        /* WhatsApp Butonu */
-        .whatsapp-float {
+        /* image_cad261.png GÖRSELİNDEKİ YÜZEN HIZLI ERİŞİM PANELİ */
+        .royal-action-panel {
             position: fixed;
             bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 9999;
+        }
+
+        .action-btn {
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            z-index: 100;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #ffffff;
+            font-size: 24px;
             text-decoration: none;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
+        .action-btn:hover {
+            transform: scale(1.1) translateY(-3px);
         }
 
-        /* Mobil Duyarlılık Tasarımı (Responsive & Hamburger Menü Mekanizması) */
+        /* Görseldeki Özel Renk Kodları */
+        .btn-call {
+            background-color: #00c853; /* Canlı Telefon Yeşili */
+        }
+        .btn-whatsapp {
+            background-color: #4caf50; /* WhatsApp Yeşili */
+        }
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram Gradients */
+        }
+        .btn-map {
+            background-color: #f44336; /* Harita Kırmızısı */
+        }
+
+        /* Mobil Duyarlılık Tasarımı */
         @media (max-width: 900px) {
             .menu-toggle {
                 display: flex;
@@ -567,7 +583,6 @@
                 letter-spacing: 3px;
             }
 
-            /* Hamburger Animasyonu */
             .menu-toggle.active .bar:nth-child(1) {
                 transform: translateY(9px) rotate(45deg);
             }
@@ -591,6 +606,18 @@
             .section-title {
                 font-size: 26px;
             }
+            
+            /* Mobilde panelin yerleşimi */
+            .royal-action-panel {
+                bottom: 20px;
+                right: 15px;
+                gap: 10px;
+            }
+            .action-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -606,7 +633,6 @@
             </div>
         </a>
         
-        <!-- Mobil Menü Butonu (☰) -->
         <button class="menu-toggle" id="mobile-menu-btn" aria-label="Menüyü Aç">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -785,28 +811,40 @@
         <p>&copy; 2026 RL Royal Palace Hotel - Tüm Hakları Saklıdır.</p>
     </footer>
 
-    <!-- Yüzen WhatsApp Butonu -->
-    <a href="https://wa.me/905404001406?text=Merhaba,%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- image_cad261.png GÖRSELİNDEKİ YÜZEN SEÇENEK PANELİ -->
+    <div class="royal-action-panel">
+        <!-- 1. Telefonla Doğrudan Arama Butonu -->
+        <a href="tel:+905404001406" class="action-btn btn-call" title="Telefon ile Ara">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <!-- 2. WhatsApp Rezervasyon Butonu -->
+        <a href="https://wa.me/905404001406?text=Merhaba,%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" class="action-btn btn-whatsapp" target="_blank" title="WhatsApp Mesaj Gönder">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <!-- 3. Instagram Profil Butonu -->
+        <a href="https://www.instagram.com/rlc_royal_palace" class="action-btn btn-instagram" target="_blank" title="Instagram Sayfamız">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <!-- 4. Harita / Yol Tarifi Butonu -->
+        <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" class="action-btn btn-map" target="_blank" title="Yol Tarifi Al">
+            <i class="fa-solid fa-location-dot"></i>
+        </a>
+    </div>
 
-    <!-- Akıllı Mobil Menü ve Geçiş Senaryoları JavaScript Kodu -->
+    <!-- Mobil Menü JavaScript Kodu -->
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('#nav-menu a');
 
-        // Menüyü açma / kapama tetikleyicisi
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenuBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        // Herhangi bir menü linkine tıklandığında menüyü otomatik kapatma
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenuBtn.classList.remove('active');
-                navMenu.classList.remove('remove'); // Eski uyumluluk
                 navMenu.classList.remove('active');
             });
         });
