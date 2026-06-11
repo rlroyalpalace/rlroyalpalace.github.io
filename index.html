@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RL Royal Palace Hotel | Sincan, Ankara - Lüks Butik Otel</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome İkonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -43,7 +45,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(10, 10, 10, 0.95);
+            background-color: rgba(10, 10, 10, 0.98);
             padding: 10px 5%;
             display: flex;
             justify-content: space-between;
@@ -59,6 +61,7 @@
             align-items: center;
             text-decoration: none;
             gap: 15px;
+            z-index: 1001;
         }
 
         .hotel-logo-img {
@@ -85,6 +88,12 @@
             color: #ffffff;
             font-weight: 300;
             margin-top: 2px;
+        }
+
+        /* Navigasyon Linkleri (Masaüstü) */
+        nav {
+            display: flex;
+            align-items: center;
         }
 
         nav a {
@@ -119,6 +128,26 @@
             color: var(--royal-gold);
         }
 
+        /* Mobil Menü Butonu (Hamburger) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--royal-gold);
+            transition: all 0.3s ease;
+        }
+
         /* Giriş Ekranı (Hero) */
         .hero {
             height: 100vh;
@@ -133,7 +162,6 @@
             overflow: hidden;
         }
 
-        /* Akıllı ve Garantili Arka Plan Resim Katmanı */
         .hero-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -258,6 +286,23 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             margin-top: 10px;
+        }
+
+        /* Kurumsal Bölümü */
+        .about-bg {
+            background-color: #070707;
+            border-bottom: 1px solid rgba(202, 164, 97, 0.1);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 2;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         /* Grid Sistemi */
@@ -399,6 +444,17 @@
             text-align: center;
         }
 
+        .instagram-link {
+            color: var(--royal-gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .instagram-link:hover {
+            color: #ffffff;
+        }
+
         .map-container {
             width: 100%;
             height: 380px;
@@ -431,6 +487,31 @@
             color: var(--royal-dark);
         }
 
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(202, 164, 97, 0.1);
+            background-color: #050505;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer .social-icons {
+            margin-bottom: 15px;
+        }
+
+        footer .social-icons a {
+            color: var(--royal-gold);
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #ffffff;
+        }
+
         /* WhatsApp Butonu */
         .whatsapp-float {
             position: fixed;
@@ -456,19 +537,47 @@
             transform: scale(1.1);
         }
 
-        /* Mobil Duyarlılık (Responsive) */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 15px;
+        /* Mobil Duyarlılık Tasarımı (Responsive & Hamburger Menü Mekanizması) */
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: flex;
             }
+
             nav {
-                margin-top: 15px;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: rgba(10, 10, 10, 0.98);
+                border-left: 1px solid rgba(202, 164, 97, 0.3);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+                z-index: 1000;
             }
+
+            nav.active {
+                right: 0;
+            }
+
             nav a {
-                margin: 0 10px;
-                font-size: 10px;
+                margin: 20px 0;
+                font-size: 16px;
+                letter-spacing: 3px;
             }
+
+            /* Hamburger Animasyonu */
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
             .hero h1 {
                 font-size: 32px;
             }
@@ -477,7 +586,7 @@
                 letter-spacing: 3px;
             }
             section {
-                padding: 70px 20px;
+                padding: 80px 20px;
             }
             .section-title {
                 font-size: 26px;
@@ -487,6 +596,7 @@
 </head>
 <body>
 
+    <!-- Menü Başlangıcı -->
     <header>
         <a href="#" class="logo-container">
             <img src="logo.jpg" onerror="this.src='logo.jpeg'; this.onerror=function(){this.src='logo.png';};" alt="RL Royal Palace Logo" class="hotel-logo-img">
@@ -495,14 +605,24 @@
                 <span>HOTEL & SUITES</span>
             </div>
         </a>
-        <nav>
+        
+        <!-- Mobil Menü Butonu (☰) -->
+        <button class="menu-toggle" id="mobile-menu-btn" aria-label="Menüyü Aç">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="nav-menu">
             <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#kurumsal">Kurumsal</a>
             <a href="#odalar">Odalarımız</a>
             <a href="#hizmetler">Hizmetler</a>
             <a href="#iletisim">İletişim</a>
         </nav>
     </header>
 
+    <!-- Giriş Alanı -->
     <section class="hero" id="anasayfa" style="max-width: 100%; width: 100%;">
         <div class="hero-bg">
             <img src="oda1.jpg" onerror="this.src='oda1.jpeg'; this.onerror=function(){this.src='oda1.png';};" alt="RL Royal Palace Oda">
@@ -515,6 +635,20 @@
         </div>
     </section>
 
+    <!-- Kurumsal Bölümü -->
+    <div class="about-bg" id="kurumsal">
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Kurumsal</h2>
+                <p class="section-subtitle">Konforunuz Bizim İçin Önemli</p>
+            </div>
+            <div class="about-content">
+                Royal Palace Otel Olarak Profesyonel ve Güler yüzlü Kadromuz Ankara Sincan İlçesinde Merkezi Lokasyon da Bulunan 40 Odalı Otelimizde Siz Değerli Misafirlerimiz Konaklamasında Müşteri Memnuniyetini Önemseyerek Uzun Yıllardır Hizmet Vermekteyiz. Otelimizde 7/24 Resepsiyon, Uyandırma Servisi, Tüm Odalarımızda Ücretsiz Yüksek Hızlı Wifi, Led Televizyon, Netflix, Android Tv, Klima, Mini Buzdolabı Bulunmaktadır. Konforunuz Bizim İçin Önemli...
+            </div>
+        </section>
+    </div>
+
+    <!-- Odalarımız Bölümü -->
     <section id="odalar">
         <div class="section-header">
             <h2 class="section-title">Saray Konforunda Odalarımız</h2>
@@ -522,6 +656,7 @@
         </div>
         
         <div class="grid-3">
+            <!-- Oda 1 -->
             <div class="room-card">
                 <div class="room-img-container">
                     <img src="oda1.jpg" onerror="this.src='oda1.jpeg'; this.onerror=function(){this.src='oda1.png';};" alt="1+1 Suit Kral Dairesi">
@@ -529,7 +664,7 @@
                 <div class="room-info">
                     <h3>1+1 Suit Kral Dairesi</h3>
                     <ul class="room-features-list">
-                        <li><i class="fa-solid fa-tv"></i> Led Android TV</li>
+                        <li><i class="fa-solid fa-tv"></i> Led Android TV & Netflix</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Premium Buzdolabı</li>
                         <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
                         <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
@@ -538,6 +673,7 @@
                 </div>
             </div>
 
+            <!-- Oda 2 -->
             <div class="room-card">
                 <div class="room-img-container">
                     <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800" alt="Standart Deluxe Oda">
@@ -545,7 +681,7 @@
                 <div class="room-info">
                     <h3>Standart Deluxe Oda</h3>
                     <ul class="room-features-list">
-                        <li><i class="fa-solid fa-tv"></i> Led Android TV</li>
+                        <li><i class="fa-solid fa-tv"></i> Led Android TV & Netflix</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
                         <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
                         <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
@@ -554,6 +690,7 @@
                 </div>
             </div>
 
+            <!-- Oda 3 -->
             <div class="room-card">
                 <div class="room-img-container">
                     <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800" alt="Single Tek Kişilik Oda">
@@ -561,7 +698,7 @@
                 <div class="room-info">
                     <h3>Single Tek Kişilik Oda</h3>
                     <ul class="room-features-list">
-                        <li><i class="fa-solid fa-tv"></i> Led Android TV</li>
+                        <li><i class="fa-solid fa-tv"></i> Led Android TV & Netflix</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
                         <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
                         <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
@@ -572,6 +709,7 @@
         </div>
     </section>
 
+    <!-- Hizmetler Bölümü -->
     <div class="services-bg" id="hizmetler">
         <section>
             <div class="section-header">
@@ -597,8 +735,8 @@
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-bell"></i>
-                    <h4>Uyandırma Servisi</h4>
-                    <p>Günün hiçbir önemli anını kaçırmamanız için profesyonel ve zamanında asistanlık.</p>
+                    <h4>7/24 Resepsiyon & Uyandırma</h4>
+                    <p>Günün her saati kesintisiz hizmet ve randevularınızı kaçırmamanız için profesyonel asistanlık.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-snowflake"></i>
@@ -607,13 +745,14 @@
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-tv"></i>
-                    <h4>Android Led TV Deneyimi</h4>
-                    <p>Geniş ekran multimedya sistemleri sayesinde odanızda keyifli sinema saatleri.</p>
+                    <h4>Android Led TV & Netflix</h4>
+                    <p>Geniş ekran multimedya ve akıllı TV sistemleri sayesinde odanızda kesintisiz sinema keyfi.</p>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- İletişim Bölümü -->
     <section id="iletisim">
         <div class="section-header">
             <h2 class="section-title">İletişim & Lokasyon</h2>
@@ -627,6 +766,7 @@
                 <p><i class="fa-solid fa-location-dot"></i> Tandoğan Mah. Zeki Uğur Cad. No:6-8 Sincan / Ankara</p>
                 <p><i class="fa-solid fa-phone"></i> +90 540 400 14 06</p>
                 <p><i class="fa-solid fa-envelope"></i> info@rlroyalpalace.com</p>
+                <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" class="instagram-link">@rlc_royal_palace</a></p>
                 <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritada Yol Tarifi Al</a>
             </div>
             
@@ -636,9 +776,41 @@
         </div>
     </section>
 
+    <!-- Alt Alan (Footer) -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/905404001406" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2026 RL Royal Palace Hotel - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <!-- Yüzen WhatsApp Butonu -->
     <a href="https://wa.me/905404001406?text=Merhaba,%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <!-- Akıllı Mobil Menü ve Geçiş Senaryoları JavaScript Kodu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+
+        // Menüyü açma / kapama tetikleyicisi
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Herhangi bir menü linkine tıklandığında menüyü otomatik kapatma
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('remove'); // Eski uyumluluk
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
