@@ -7,18 +7,17 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome İkonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #c5a880; /* Royal Altın */
-            --dark-color: #141414;
-            --light-bg: #fdfdfd;
-            --card-bg: #ffffff;
-            --text-main: #2c2c2c;
-            --text-muted: #666666;
+            --royal-gold: #caa461; /* Logosundaki asil fırçalanmış altın tonu */
+            --royal-dark: #0a0a0a; /* Siyah kadife arka plan */
+            --card-dark: #121212;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
         }
 
         * {
@@ -29,13 +28,14 @@
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .hotel-logo {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, h4, .hotel-logo-text {
+            font-family: 'Cinzel', serif; /* Saray havası veren lüks yazı tipi */
+            letter-spacing: 2px;
         }
 
         body {
-            background-color: var(--light-bg);
-            color: var(--text-main);
+            background-color: var(--royal-dark);
+            color: var(--text-light);
             line-height: 1.6;
         }
 
@@ -45,127 +45,171 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(20, 20, 20, 0.98);
-            padding: 20px 5%;
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(197, 168, 128, 0.15);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(202, 164, 97, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
         }
 
-        .hotel-logo {
-            color: var(--primary-color);
-            font-size: 22px;
-            font-weight: 700;
+        .logo-container {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: 2px;
+            gap: 15px;
+        }
+
+        .hotel-logo-img {
+            height: 60px; /* Logonun kibar durması için ideal boy */
+            width: auto;
+            border-radius: 4px;
+            border: 1px solid rgba(202, 164, 97, 0.3);
+        }
+
+        .hotel-logo-text {
+            color: var(--royal-gold);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hotel-logo-text span {
+            display: block;
+            font-size: 11px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 4px;
+            color: #ffffff;
+            font-weight: 300;
+            margin-top: 2px;
         }
 
         nav a {
             color: #ffffff;
             text-decoration: none;
             margin-left: 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: all 0.3s;
             text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--royal-gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         nav a:hover {
-            color: var(--primary-color);
+            color: var(--royal-gold);
         }
 
         /* Giriş Ekranı (Hero) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920') no-repeat center center/cover;
+            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #ffffff;
             padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 52px;
             margin-bottom: 15px;
-            letter-spacing: 2px;
-            font-weight: 700;
+            color: #ffffff;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 16px;
-            margin-bottom: 35px;
-            font-weight: 300;
-            letter-spacing: 5px;
-            color: var(--primary-color);
+            font-size: 14px;
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: var(--royal-gold);
             text-transform: uppercase;
         }
 
         /* Butonlar */
         .btn-main {
-            background-color: var(--primary-color);
-            color: var(--dark-color);
-            padding: 16px 36px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .btn-main:hover {
             background-color: transparent;
-            color: var(--primary-color);
-        }
-
-        .btn-room {
-            background-color: var(--dark-color);
-            color: var(--primary-color);
-            padding: 12px 24px;
+            color: var(--royal-gold);
+            padding: 16px 40px;
             text-decoration: none;
             font-weight: 600;
             font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            border: 1px solid var(--royal-gold);
+            box-shadow: 0 0 15px rgba(202, 164, 97, 0.1);
+        }
+
+        .btn-main:hover {
+            background-color: var(--royal-gold);
+            color: var(--royal-dark);
+            box-shadow: 0 0 25px rgba(202, 164, 97, 0.4);
+        }
+
+        .btn-room {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             display: block;
             text-align: center;
-            border: 1px solid var(--primary-color);
+            border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .btn-room:hover {
-            background-color: var(--primary-color);
-            color: var(--dark-color);
+            border-color: var(--royal-gold);
+            color: var(--royal-gold);
+            background-color: rgba(202, 164, 97, 0.05);
         }
 
-        /* Ortak Bölüm Tasarımları */
+        /* Ortak Bölümler */
         section {
-            padding: 100px 20px;
+            padding: 120px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .section-title {
-            font-size: 38px;
-            margin-bottom: 10px;
+            font-size: 34px;
+            margin-bottom: 15px;
             position: relative;
-            padding-bottom: 15px;
-            font-weight: 700;
+            padding-bottom: 20px;
+            color: #ffffff;
+            font-weight: 400;
         }
 
         .section-title::after {
@@ -174,17 +218,17 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 20px;
-            border-bottom: 2px solid var(--primary-color);
+            width: 40px;
+            height: 1px;
+            background-color: var(--royal-gold);
         }
 
         .section-subtitle {
-            color: var(--text-muted);
-            font-size: 13px;
+            color: var(--royal-gold);
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 5px;
+            letter-spacing: 4px;
+            margin-top: 10px;
         }
 
         /* Grid Sistemi */
@@ -196,115 +240,164 @@
 
         /* Odalar Bölümü */
         .room-card {
-            background: var(--card-bg);
-            border-radius: 0px;
+            background: var(--card-dark);
+            border: 1px solid rgba(202, 164, 97, 0.15);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border: 1px solid #eee;
+            transition: all 0.4s ease;
         }
 
         .room-card:hover {
             transform: translateY(-5px);
+            border-color: var(--royal-gold);
+            box-shadow: 0 10px 30px rgba(202, 164, 97, 0.08);
         }
 
         .room-img {
-            height: 240px;
+            height: 250px;
             background-size: cover;
             background-position: center;
+            position: relative;
+        }
+
+        .room-img::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, var(--card-dark));
         }
 
         .room-info {
-            padding: 30px;
+            padding: 35px;
         }
 
         .room-info h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 500;
         }
 
         .room-features-list {
             list-style: none;
             font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 20px;
         }
 
         .room-features-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
 
         .room-features-list li i {
-            color: var(--primary-color);
-            margin-right: 10px;
+            color: var(--royal-gold);
+            margin-right: 12px;
             width: 15px;
+            font-size: 14px;
         }
 
         /* Hizmetler Bölümü */
         .services-bg {
-            background-color: #f7f5f2;
+            background-color: #070707;
+            border-top: 1px solid rgba(202, 164, 97, 0.1);
+            border-bottom: 1px solid rgba(202, 164, 97, 0.1);
             max-width: 100%;
         }
 
         .service-box {
             text-align: center;
-            padding: 40px 20px;
-            background: var(--card-bg);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
-            border-bottom: 3px solid transparent;
+            padding: 50px 25px;
+            background: var(--royal-dark);
+            border: 1px solid rgba(255,255,255,0.03);
             transition: all 0.3s;
         }
 
         .service-box:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
+            border-color: var(--royal-gold);
+            background-color: var(--card-dark);
         }
 
         .service-box i {
-            font-size: 36px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            font-size: 32px;
+            color: var(--royal-gold);
+            margin-bottom: 25px;
         }
 
         .service-box h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 500;
         }
 
         .service-box p {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
         }
 
         /* İletişim Alanı */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: start;
         }
 
         .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #ffffff;
         }
 
         .contact-info p {
-            margin-bottom: 15px;
-            font-size: 15px;
+            margin-bottom: 18px;
+            font-size: 14px;
             color: var(--text-muted);
+            display: flex;
+            align-items: center;
         }
 
         .contact-info i {
-            color: var(--primary-color);
-            margin-right: 12px;
+            color: var(--royal-gold);
+            margin-right: 15px;
+            font-size: 16px;
             width: 20px;
+            text-align: center;
         }
 
-        /* WhatsApp İletişim Butonu */
+        .map-container {
+            width: 100%;
+            height: 380px;
+            border: 1px solid rgba(202, 164, 97, 0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg); /* Haritayı gece/koyu moda uyarlama büyüsü */
+        }
+
+        .btn-direction {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--royal-dark);
+            background-color: var(--royal-gold);
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-direction:hover {
+            background-color: #ffffff;
+            color: var(--royal-dark);
+        }
+
+        /* WhatsApp Butonu */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -316,7 +409,7 @@
             border-radius: 50%;
             text-align: center;
             font-size: 32px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             z-index: 100;
             display: flex;
             align-items: center;
@@ -340,20 +433,20 @@
             }
             nav a {
                 margin: 0 10px;
-                font-size: 11px;
+                font-size: 10px;
             }
             .hero h1 {
-                font-size: 34px;
+                font-size: 32px;
             }
             .hero p {
-                font-size: 12px;
-                letter-spacing: 2px;
+                font-size: 11px;
+                letter-spacing: 3px;
             }
             section {
-                padding: 60px 20px;
+                padding: 70px 20px;
             }
             .section-title {
-                font-size: 30px;
+                font-size: 26px;
             }
         }
     </style>
@@ -362,11 +455,18 @@
 
     <!-- Üst Menü -->
     <header>
-        <a href="#" class="hotel-logo">RL ROYAL PALACE</a>
+        <a href="#" class="logo-container">
+            <!-- rl logo 1.jpeg buraya entegre edildi -->
+            <img src="https://i.ibb.co/6R68z1y2/rl-logo-1.jpg" alt="RL Royal Palace Logo" class="hotel-logo-img">
+            <div class="hotel-logo-text">
+                RL ROYAL PALACE
+                <span>HOTEL & SUITES</span>
+            </div>
+        </a>
         <nav>
             <a href="#anasayfa">Ana Sayfa</a>
             <a href="#odalar">Odalarımız</a>
-            <a href="#hizmetler">Hizmetlerimiz</a>
+            <a href="#hizmetler">Hizmetler</a>
             <a href="#iletisim">İletişim</a>
         </nav>
     </header>
@@ -374,15 +474,15 @@
     <!-- Giriş Alanı -->
     <section class="hero" id="anasayfa" style="max-width: 100%; width: 100%;">
         <h1>RL Royal Palace Hotel</h1>
-        <p>Ankara Sincan'da Lüks ve Konforun Buluşma Noktası</p>
+        <p>Ankara Sincan'da Asil ve Kusursuz Bir Konaklama Deneyimi</p>
         <a href="https://wa.me/905404001406?text=Merhaba,%20müsaitlik%20durumu%20ve%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-main">Doğrudan Rezervasyon Yap</a>
     </section>
 
     <!-- Odalarımız Bölümü -->
     <section id="odalar">
         <div class="section-header">
-            <h2 class="section-title">Konforlu Odalarımız</h2>
-            <p class="section-subtitle">Sizin için özenle tasarlanmış yaşam alanları</p>
+            <h2 class="section-title">Saray Konforunda Odalarımız</h2>
+            <p class="section-subtitle">Sizin için en ince detayına kadar düşünülmüş lüks detaylar</p>
         </div>
         
         <div class="grid-3">
@@ -393,9 +493,9 @@
                     <h3>1+1 Suit Kral Dairesi</h3>
                     <ul class="room-features-list">
                         <li><i class="fa-solid fa-tv"></i> Led Android TV</li>
-                        <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
-                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve</li>
-                        <li><i class="fa-solid fa-wifi"></i> Ücretsiz Yüksek Hızda Wi-Fi</li>
+                        <li><i class="fa-solid fa-snowflake"></i> Klima & Premium Buzdolabı</li>
+                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
+                        <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
                     </ul>
                     <a href="https://wa.me/905404001406?text=Merhaba,%201%2B1%20Suit%20Kral%20Dairesi%20için%20rezervasyon%20bilgisi%20almak%20istiyorum." target="_blank" class="btn-room">Rezervasyon Talebi</a>
                 </div>
@@ -409,8 +509,8 @@
                     <ul class="room-features-list">
                         <li><i class="fa-solid fa-tv"></i> Led Android TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
-                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve</li>
-                        <li><i class="fa-solid fa-wifi"></i> Ücretsiz Yüksek Hızda Wi-Fi</li>
+                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
+                        <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
                     </ul>
                     <a href="https://wa.me/905404001406?text=Merhaba,%20Standart%20Deluxe%20Oda%20için%20rezervasyon%20bilgisi%20almak%20istiyorum." target="_blank" class="btn-room">Rezervasyon Talebi</a>
                 </div>
@@ -424,8 +524,8 @@
                     <ul class="room-features-list">
                         <li><i class="fa-solid fa-tv"></i> Led Android TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
-                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve</li>
-                        <li><i class="fa-solid fa-wifi"></i> Ücretsiz Yüksek Hızda Wi-Fi</li>
+                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
+                        <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
                     </ul>
                     <a href="https://wa.me/905404001406?text=Merhaba,%20Single%20Tek%20Kişilik%20Oda%20için%20rezervasyon%20bilgisi%20almak%20istiyorum." target="_blank" class="btn-room">Rezervasyon Talebi</a>
                 </div>
@@ -437,40 +537,40 @@
     <div class="services-bg" id="hizmetler">
         <section>
             <div class="section-header">
-                <h2 class="section-title">Ayrıcalıklı Hizmetlerimiz</h2>
-                <p class="section-subtitle">Konaklamanızı kusursuz kılacak detaylar</p>
+                <h2 class="section-title">Seçkin Hizmetlerimiz</h2>
+                <p class="section-subtitle">Konaklamanızı unutulmaz kılacak ayrıcalıklar</p>
             </div>
             
             <div class="grid-3">
                 <div class="service-box">
                     <i class="fa-solid fa-utensils"></i>
                     <h4>Odaya Kahvaltı Servisi</h4>
-                    <p>Güne harika bir başlangıç yapmanız için leziz kahvaltınız odanıza servis edilir.</p>
+                    <p>Güne zinde ve konforlu başlamanız için özenle hazırlanan kahvaltınız odanıza ulaştırılır.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-wifi"></i>
-                    <h4>Yüksek Hızlı Wi-Fi</h4>
-                    <p>İşleriniz ve eğlenceniz kesintiye uğramasın diye tüm alanlarda yüksek hızlı internet.</p>
+                    <h4>Yüksek Hızlı İnternet</h4>
+                    <p>İş seyahatleriniz ve dijital dünyanız için tüm alanlarda kesintisiz yüksek hızlı Wi-Fi.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-car"></i>
-                    <h4>Otopark Hizmeti</h4>
-                    <p>Otelimize özel otopark alanımız sayesinde aracınız her zaman güvende.</p>
+                    <h4>Özel Otopark Alanı</h4>
+                    <p>Güvenli otoparkımız sayesinde siz dinlenirken aracınız her zaman emniyette olsun.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-bell"></i>
                     <h4>Uyandırma Servisi</h4>
-                    <p>Günün hiçbir randevusunu kaçırmamanız için profesyonel uyandırma desteği.</p>
+                    <p>Günün hiçbir önemli anını kaçırmamanız için profesyonel ve zamanında asistanlık.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-snowflake"></i>
-                    <h4>Gelişmiş İklimlendirme</h4>
-                    <p>Tüm odalarda bulunan modern klimalarla sıcaklığı dilediğiniz gibi ayarlayın.</p>
+                    <h4>Kusursuz İklimlendirme</h4>
+                    <p>Tüm odalarda yer alan sessiz ve modern klimalar ile odanızın sıcaklığı tamamen sizin kontrolünüzde.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-tv"></i>
-                    <h4>Android Led TV Keyfi</h4>
-                    <p>Odanızda dinlenirken geniş ekran Android TV ile favori içeriklerinizi izleyin.</p>
+                    <h4>Android Led TV Deneyimi</h4>
+                    <p>Geniş ekran multimedya sistemleri sayesinde odanızda keyifli sinema saatleri.</p>
                 </div>
             </div>
         </section>
@@ -479,21 +579,23 @@
     <!-- İletişim Bölümü -->
     <section id="iletisim">
         <div class="section-header">
-            <h2 class="section-title">İletişim & Konum</h2>
-            <p class="section-subtitle">7/24 Hizmetinizdeyiz</p>
+            <h2 class="section-title">İletişim & Lokasyon</h2>
+            <p class="section-subtitle">Ayrıcalıklı dünyamıza davetlisiniz</p>
         </div>
 
         <div class="contact-grid">
             <div class="contact-info">
                 <h3>RL Royal Palace Hotel</h3>
-                <p>Şehrin merkezinde, seçkin bir konaklama deneyimi sunan butik otelimize davetlisiniz.</p>
-                <p><i class="fa-solid fa-location-dot"></i> Sincan, Ankara / Türkiye</p>
+                <p>Ankara Sincan'ın en merkezi lokasyonunda, yüksek standartlarda butik bir konaklama deneyimi sunuyoruz.</p>
+                <p><i class="fa-solid fa-location-dot"></i> Tandoğan Mah. Zeki Uğur Cad. No:6-8 Sincan / Ankara</p>
                 <p><i class="fa-solid fa-phone"></i> +90 540 400 14 06</p>
                 <p><i class="fa-solid fa-envelope"></i> info@rlroyalpalace.com</p>
+                <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritada Yol Tarifi Al</a>
             </div>
-            <!-- Google Harita İleride Özelleştirilebilir -->
-            <div style="width: 100%; height: 300px; background-color: #eee; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd;">
-                <span style="color: #666; font-size: 14px;"><i class="fa-solid fa-map-location-dot"></i> Ankara Sincan Merkez Haritası</span>
+            
+            <!-- Koyu Mod Google Haritası -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.8837370836526!2d32.57688!3d39.96675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDU4JzAwLjMiTiAzMsKwMzQnMzYuOCJF!5e0!3m2!1str!2str!4v1717770000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
