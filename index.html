@@ -119,13 +119,8 @@
             transition: width 0.3s;
         }
 
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        nav a:hover {
-            color: var(--royal-gold);
-        }
+        nav a:hover::after { width: 100%; }
+        nav a:hover { color: var(--royal-gold); }
 
         .menu-toggle {
             display: none;
@@ -174,18 +169,18 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(10,10,10,0.3), rgba(10,10,10,0.75));
+            background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.8));
             z-index: 2;
         }
 
         .hero-content {
             position: relative;
             z-index: 3;
-            margin-top: -80px;
+            margin-top: -100px;
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 52px;
             margin-bottom: 15px;
             color: #ffffff;
             font-weight: 400;
@@ -196,13 +191,13 @@
             font-size: 14px;
             margin-bottom: 40px;
             font-weight: 400;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             color: var(--royal-gold);
             text-transform: uppercase;
             text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
-        /* REZERVASYON MODÜLÜ TASARIMI (Masaüstü Şık & Net Cam Görünümü) */
+        /* AKILLI REZERVASYON MODÜLÜ (Yarı Şeffaf & Premium) */
         .booking-wrapper {
             position: absolute;
             bottom: 40px;
@@ -210,19 +205,30 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 1100px;
-            background-color: rgba(18, 18, 18, 0.75); /* Şeffaflaştırıldı */
+            background-color: rgba(18, 18, 18, 0.75); 
             border: 1px solid rgba(202, 164, 97, 0.25);
-            padding: 25px;
+            padding: 20px 25px;
             z-index: 10;
             box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-            backdrop-filter: blur(15px); /* Arkayı harika buğulayan efekt */
+            backdrop-filter: blur(15px);
         }
 
         .booking-form {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) 180px;
+            grid-template-columns: repeat(4, 1fr) 180px;
             gap: 15px;
             align-items: flex-end;
+        }
+
+        /* İkinci Adım (Masaüstünde Varsayılan Olarak Yan Yana) */
+        .form-step-2 {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 15px;
         }
 
         .form-group {
@@ -255,21 +261,11 @@
             border-color: var(--royal-gold);
         }
 
-        .form-row-contact {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 10px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 15px;
-        }
-
         .btn-submit {
             background-color: var(--royal-gold);
             color: var(--royal-dark);
             border: 1px solid var(--royal-gold);
-            padding: 13px;
+            padding: 12px;
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
@@ -509,9 +505,7 @@
             transition: color 0.3s;
         }
 
-        .instagram-link:hover {
-            color: #ffffff;
-        }
+        .instagram-link:hover { color: #ffffff; }
 
         .map-container {
             width: 100%;
@@ -555,9 +549,7 @@
             color: var(--text-muted);
         }
 
-        footer .social-icons {
-            margin-bottom: 15px;
-        }
+        footer .social-icons { margin-bottom: 15px; }
 
         footer .social-icons a {
             color: var(--royal-gold);
@@ -566,9 +558,7 @@
             transition: color 0.3s;
         }
 
-        footer .social-icons a:hover {
-            color: #ffffff;
-        }
+        footer .social-icons a:hover { color: #ffffff; }
 
         /* Sabit Hızlı Erişim Paneli */
         .royal-action-panel {
@@ -595,20 +585,15 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .action-btn:hover {
-            transform: scale(1.1) translateY(-3px);
-        }
-
+        .action-btn:hover { transform: scale(1.1) translateY(-3px); }
         .btn-call { background-color: #00c853; }
         .btn-whatsapp { background-color: #4caf50; }
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-map { background-color: #f44336; }
 
-        /* TELEFONLAR İÇİN ÖZEL SİHİRLİ MOBİL DÜZELTMELER */
+        /* TELEFONLAR VE TABLETLER İÇİN ÖZEL ULTRA MOBİL OPTİMİZASYON */
         @media (max-width: 900px) {
-            .menu-toggle {
-                display: flex;
-            }
+            .menu-toggle { display: flex; }
 
             nav {
                 position: fixed;
@@ -636,38 +621,57 @@
             .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
             .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-            /* MOBİLDE RESMİN TAM GÖRÜNMESİ İÇİN ALANI UZATTIK VE FORMU AŞAĞIYA İTTİK */
+            /* Mobilde hero yüksekliği ve esnekliği */
             .hero { 
-                height: auto; 
-                padding: 160px 15px 50px 15px; /* Üst ve alt boşluklar artırıldı */
-                display: block; /* İçeriklerin üst üste binmesini tamamen engeller */
+                height: 100vh; 
+                padding: 100px 15px 0 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             .hero-content {
-                margin-top: 0;
-                margin-bottom: 40px; /* Başlık ile form arasına net boşluk */
+                margin-top: -60px;
+                margin-bottom: 25px;
             }
-            .hero h1 { font-size: 28px; }
-            .hero p { font-size: 11px; letter-spacing: 2px; margin-bottom: 0; }
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 11px; letter-spacing: 2px; }
             
-            /* MOBİL REZERVASYON FORMU YENİ TASARIMI (Şeffaf ve Bağımsız) */
+            /* GÖZ YORMAYAN ADIMLI MOBİL REZERVASYON FORMU */
             .booking-wrapper { 
-                position: relative; /* Sabit konumdan çıkarıp akışa aldık, böylece asla üste binmez */
+                position: relative;
                 bottom: 0;
                 left: 0;
                 transform: none;
                 width: 100%; 
-                background-color: rgba(18, 18, 18, 0.65); /* Daha şeffaf, arkası görünür */
+                background-color: rgba(15, 15, 15, 0.7); 
                 border: 1px solid rgba(202, 164, 97, 0.2);
-                padding: 20px 15px; 
-                backdrop-filter: blur(8px);
+                padding: 15px; 
+                backdrop-filter: blur(10px);
+                margin-bottom: 20px;
             }
-            .booking-form { grid-template-columns: 1fr; gap: 12px; }
-            .form-row-contact { grid-template-columns: 1fr; padding-top: 5px; gap: 12px; }
+
+            /* Mobilde alanlar alt alta değil, sadece aktif olanlar görünür */
+            .booking-form { 
+                grid-template-columns: 1fr; 
+                gap: 10px; 
+            }
+
+            /* Mobil için Adım Ayarları (JS ile kontrol edilecek) */
+            .mobile-hidden {
+                display: none !important;
+            }
+
+            .form-step-2 {
+                grid-template-columns: 1fr;
+                margin-top: 5px;
+                border-top: none;
+                padding-top: 0;
+                gap: 10px;
+            }
 
             section { padding: 80px 20px; }
             .section-title { font-size: 26px; }
             
-            /* Mobilde sağ buton panelini bir tık küçülttük ki form butonunu kapatmasın */
             .royal-action-panel { bottom: 20px; right: 10px; gap: 8px; }
             .action-btn { width: 45px; height: 45px; font-size: 18px; }
         }
@@ -712,10 +716,12 @@
             <p>Ankara Sincan'da Asil ve Kusursuz Bir Konaklama Deneyimi</p>
         </div>
 
-        <!-- YENİLENEN MOBİL UYUMLU REZERVASYON MODÜLÜ -->
+        <!-- YENİ ADIMLI / GÖZ YORMAYAN MODÜL -->
         <div class="booking-wrapper">
             <!-- Formspree ID'nizi 'xxxxxxxx' kısmına eklemeyi unutmayın -->
-            <form class="booking-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
+            <form class="booking-form" action="https://formspree.io/f/xxxxxxxx" method="POST" id="reservation-form">
+                
+                <!-- ADIM 1: Sadece Tarihler (Göz yormayan minimalist alan) -->
                 <div class="form-group">
                     <label>Giriş Tarihi</label>
                     <input type="date" name="Giris_Tarihi" required>
@@ -724,37 +730,42 @@
                     <label>Çıkış Tarihi</label>
                     <input type="date" name="Cikis_Tarihi" required>
                 </div>
-                <div class="form-group">
-                    <label>Oda Tipi</label>
-                    <select name="Oda_Tipi" required>
-                        <option value="1+1 Suit Kral Dairesi">1+1 Suit Kral Dairesi</option>
-                        <option value="Standart Deluxe Oda">Standart Deluxe Oda</option>
-                        <option value="Single Tek Kişilik Oda">Single Tek Kişilik Oda</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Misafirler</label>
-                    <select name="Misafir_Sayisi">
-                        <option value="1 Yetişkin">1 Yetişkin</option>
-                        <option value="2 Yetişkin">2 Yetişkin</option>
-                        <option value="3 Yetişkin">3 Yetişkin</option>
-                        <option value="2 Yetişkin + 1 Çocuk">2 Yetişkin + 1 Çocuk</option>
-                    </select>
-                </div>
-                
-                <div class="form-row-contact">
+
+                <!-- ADIM 2: Diğer Detaylar (Mobilde ilk başta gizli, tıklanınca açılır) -->
+                <div class="form-step-2" id="step-2-container">
+                    <div class="form-group">
+                        <label>Oda Tipi</label>
+                        <select name="Oda_Tipi" required>
+                            <option value="1+1 Suit Kral Dairesi">1+1 Suit Kral Dairesi</option>
+                            <option value="Standart Deluxe Oda">Standart Deluxe Oda</option>
+                            <option value="Single Tek Kişilik Oda">Single Tek Kişilik Oda</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Misafirler</label>
+                        <select name="Misafir_Sayisi">
+                            <option value="1 Yetişkin">1 Yetişkin</option>
+                            <option value="2 Yetişkin">2 Yetişkin</option>
+                            <option value="3 Yetişkin">3 Yetişkin</option>
+                            <option value="2 Yetişkin + 1 Çocuk">2 Yetişkin + 1 Çocuk</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>Adınız Soyadınız</label>
-                        <input type="text" name="Ad_Soyad" placeholder="Örn: Ahmet Yılmaz" required>
+                        <input type="text" name="Ad_Soyad" placeholder="Ahmet Yılmaz" required>
                     </div>
                     <div class="form-group">
                         <label>Telefon Numaranız</label>
-                        <input type="tel" name="Telefon" placeholder="Örn: 05xx xxx xx xx" required>
+                        <input type="tel" name="Telefon" placeholder="05xx xxx xx xx" required>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn-submit">Talep Gönder</button>
+                <!-- Dinamik Buton Alanı -->
+                <div class="form-group" style="justify-content: flex-end;">
+                    <!-- Mobilde İlk Adım Butonu -->
+                    <button type="button" class="btn-submit" id="next-step-btn">Odaları Listele</button>
+                    <!-- Gerçek Gönderim Butonu (İlk başta mobilde gizli) -->
+                    <button type="submit" class="btn-submit" id="real-submit-btn">Talep Gönder</button>
                 </div>
             </form>
         </div>
@@ -781,7 +792,6 @@
         </div>
         
         <div class="grid-3">
-            <!-- Oda 1 -->
             <div class="room-card">
                 <div class="room-img-container">
                     <img src="oda1.jpg" onerror="this.src='oda1.jpeg'; this.onerror=function(){this.src='oda1.png';};" alt="1+1 Suit Kral Dairesi">
@@ -798,7 +808,6 @@
                 </div>
             </div>
 
-            <!-- Oda 2 -->
             <div class="room-card">
                 <div class="room-img-container">
                     <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800" alt="Standart Deluxe Oda">
@@ -815,7 +824,6 @@
                 </div>
             </div>
 
-            <!-- Oda 3 -->
             <div class="room-card">
                 <div class="room-img-container">
                     <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800" alt="Single Tek Kişilik Oda">
@@ -926,8 +934,9 @@
         </a>
     </div>
 
-    <!-- Mobil Menü Scripti -->
+    <!-- Akıllı Form ve Menü Yönetimi Scripti -->
     <script>
+        // Menü Elemanları
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('#nav-menu a');
@@ -942,6 +951,37 @@
                 mobileMenuBtn.classList.remove('active');
                 navMenu.classList.remove('active');
             });
+        });
+
+        // ADIMLI MOBİL REZERVASYON FORMU SİHİRBAZI
+        const nextBtn = document.getElementById('next-step-btn');
+        const submitBtn = document.getElementById('real-submit-btn');
+        const step2Container = document.getElementById('step-2-container');
+
+        function checkMobileResolution() {
+            if (window.innerWidth <= 900) {
+                // Mobilde ilk başta ikinci adımı ve gerçek gönder butonunu gizle
+                step2Container.classList.add('mobile-hidden');
+                submitBtn.classList.add('mobile-hidden');
+                nextBtn.classList.remove('mobile-hidden');
+            } else {
+                // Masaüstünde her şeyi serbest bırak (Yan yana şık dursunlar)
+                step2Container.classList.remove('mobile-hidden');
+                submitBtn.classList.remove('mobile-hidden');
+                nextBtn.classList.add('mobile-hidden');
+            }
+        }
+
+        // İlk açılışta ekran genişliğini denetle
+        checkMobileResolution();
+        window.addEventListener('resize', checkMobileResolution);
+
+        // "Odaları Listele" butonuna basıldığında tetiklenen akış
+        nextBtn.addEventListener('click', () => {
+            // Animasyonlu bir şekilde ikinci adımı aç
+            step2Container.classList.remove('mobile-hidden');
+            submitBtn.classList.remove('mobile-hidden');
+            nextBtn.classList.add('mobile-hidden'); // Tarih onaylama butonunu gizle
         });
     </script>
 
