@@ -174,14 +174,14 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.8));
+            background: linear-gradient(rgba(10,10,10,0.3), rgba(10,10,10,0.75));
             z-index: 2;
         }
 
         .hero-content {
             position: relative;
             z-index: 3;
-            margin-top: -50px;
+            margin-top: -80px;
         }
 
         .hero h1 {
@@ -202,20 +202,20 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
-        /* REZERVASYON MODÜLÜ TASARIMI */
+        /* REZERVASYON MODÜLÜ TASARIMI (Masaüstü Şık & Net Cam Görünümü) */
         .booking-wrapper {
             position: absolute;
-            bottom: 50px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
             max-width: 1100px;
-            background-color: rgba(18, 18, 18, 0.95);
-            border: 1px solid rgba(202, 164, 97, 0.3);
+            background-color: rgba(18, 18, 18, 0.75); /* Şeffaflaştırıldı */
+            border: 1px solid rgba(202, 164, 97, 0.25);
             padding: 25px;
             z-index: 10;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(15px); /* Arkayı harika buğulayan efekt */
         }
 
         .booking-form {
@@ -241,8 +241,8 @@
         }
 
         .form-group input, .form-group select {
-            background-color: #1a1a1a;
-            border: 1px solid rgba(255,255,255,0.1);
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255,255,255,0.15);
             color: #ffffff;
             padding: 12px;
             font-size: 13px;
@@ -255,7 +255,6 @@
             border-color: var(--royal-gold);
         }
 
-        /* Formun altındaki gizli iletişim alanları (Modülün devamı) */
         .form-row-contact {
             grid-column: 1 / -1;
             display: grid;
@@ -605,7 +604,7 @@
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-map { background-color: #f44336; }
 
-        /* Mobil Duyarlılık Tasarımı */
+        /* TELEFONLAR İÇİN ÖZEL SİHİRLİ MOBİL DÜZELTMELER */
         @media (max-width: 900px) {
             .menu-toggle {
                 display: flex;
@@ -637,20 +636,40 @@
             .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
             .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-            .hero { height: auto; padding: 140px 20px 450px 20px; }
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 11px; letter-spacing: 3px; }
+            /* MOBİLDE RESMİN TAM GÖRÜNMESİ İÇİN ALANI UZATTIK VE FORMU AŞAĞIYA İTTİK */
+            .hero { 
+                height: auto; 
+                padding: 160px 15px 50px 15px; /* Üst ve alt boşluklar artırıldı */
+                display: block; /* İçeriklerin üst üste binmesini tamamen engeller */
+            }
+            .hero-content {
+                margin-top: 0;
+                margin-bottom: 40px; /* Başlık ile form arasına net boşluk */
+            }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 11px; letter-spacing: 2px; margin-bottom: 0; }
             
-            /* Mobilde rezervasyon alanının alt alta gelmesi */
-            .booking-wrapper { bottom: 20px; padding: 15px; width: 95%; }
-            .booking-form { grid-template-columns: 1fr; gap: 10px; }
-            .form-row-contact { grid-template-columns: 1fr; padding-top: 10px; }
+            /* MOBİL REZERVASYON FORMU YENİ TASARIMI (Şeffaf ve Bağımsız) */
+            .booking-wrapper { 
+                position: relative; /* Sabit konumdan çıkarıp akışa aldık, böylece asla üste binmez */
+                bottom: 0;
+                left: 0;
+                transform: none;
+                width: 100%; 
+                background-color: rgba(18, 18, 18, 0.65); /* Daha şeffaf, arkası görünür */
+                border: 1px solid rgba(202, 164, 97, 0.2);
+                padding: 20px 15px; 
+                backdrop-filter: blur(8px);
+            }
+            .booking-form { grid-template-columns: 1fr; gap: 12px; }
+            .form-row-contact { grid-template-columns: 1fr; padding-top: 5px; gap: 12px; }
 
             section { padding: 80px 20px; }
             .section-title { font-size: 26px; }
             
-            .royal-action-panel { bottom: 20px; right: 15px; gap: 10px; }
-            .action-btn { width: 48px; height: 48px; font-size: 20px; }
+            /* Mobilde sağ buton panelini bir tık küçülttük ki form butonunu kapatmasın */
+            .royal-action-panel { bottom: 20px; right: 10px; gap: 8px; }
+            .action-btn { width: 45px; height: 45px; font-size: 18px; }
         }
     </style>
 </head>
@@ -693,10 +712,10 @@
             <p>Ankara Sincan'da Asil ve Kusursuz Bir Konaklama Deneyimi</p>
         </div>
 
-        <!-- REZERVASYON MODÜLÜ BÖLÜMÜ -->
+        <!-- YENİLENEN MOBİL UYUMLU REZERVASYON MODÜLÜ -->
         <div class="booking-wrapper">
-            <!-- !!! DİKKAT !!!: Aşağıdaki 'xxxxxxxx' kısmına Formspree'den aldığın ID'yi yapıştıracaksın -->
-            <form class="booking-form" action="https://formspree.io/f/mrevyqjq" method="POST">
+            <!-- Formspree ID'nizi 'xxxxxxxx' kısmına eklemeyi unutmayın -->
+            <form class="booking-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
                 <div class="form-group">
                     <label>Giriş Tarihi</label>
                     <input type="date" name="Giris_Tarihi" required>
@@ -723,7 +742,6 @@
                     </select>
                 </div>
                 
-                <!-- İletişim Bilgileri (Formun alt satırı) -->
                 <div class="form-row-contact">
                     <div class="form-group">
                         <label>Adınız Soyadınız</label>
