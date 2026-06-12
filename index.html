@@ -197,7 +197,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
-        /* AKILLI REZERVASYON MODÜLÜ (Yarı Şeffaf & Premium) */
+        /* AKILLI REZERVASYON MODÜLÜ */
         .booking-wrapper {
             position: absolute;
             bottom: 40px;
@@ -215,12 +215,11 @@
 
         .booking-form {
             display: grid;
-            grid-template-columns: repeat(4, 1fr) 180px;
+            grid-template-columns: repeat(4, 1fr) 220px;
             gap: 15px;
             align-items: flex-end;
         }
 
-        /* İkinci Adım (Masaüstünde Varsayılan Olarak Yan Yana) */
         .form-step-2 {
             grid-column: 1 / -1;
             display: grid;
@@ -261,6 +260,14 @@
             border-color: var(--royal-gold);
         }
 
+        /* Dinamik Butonların Alanı */
+        .btn-container-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
         .btn-submit {
             background-color: var(--royal-gold);
             color: var(--royal-dark);
@@ -273,11 +280,25 @@
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
+            text-align: center;
+            text-decoration: none;
+            display: block;
         }
 
         .btn-submit:hover {
             background-color: transparent;
             color: var(--royal-gold);
+        }
+
+        .btn-call-direct {
+            background-color: transparent;
+            color: var(--royal-gold);
+            border: 1px solid var(--royal-gold);
+        }
+
+        .btn-call-direct:hover {
+            background-color: var(--royal-gold);
+            color: var(--royal-dark);
         }
 
         /* Ortak Bölümler */
@@ -591,7 +612,7 @@
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-map { background-color: #f44336; }
 
-        /* TELEFONLAR VE TABLETLER İÇİN ÖZEL ULTRA MOBİL OPTİMİZASYON */
+        /* ULTRA MOBİL OPTİMİZASYON DEKLARASYONU */
         @media (max-width: 900px) {
             .menu-toggle { display: flex; }
 
@@ -621,7 +642,6 @@
             .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
             .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-            /* Mobilde hero yüksekliği ve esnekliği */
             .hero { 
                 height: 100vh; 
                 padding: 100px 15px 0 15px;
@@ -631,12 +651,11 @@
             }
             .hero-content {
                 margin-top: -60px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
             }
             .hero h1 { font-size: 30px; }
             .hero p { font-size: 11px; letter-spacing: 2px; }
             
-            /* GÖZ YORMAYAN ADIMLI MOBİL REZERVASYON FORMU */
             .booking-wrapper { 
                 position: relative;
                 bottom: 0;
@@ -650,13 +669,11 @@
                 margin-bottom: 20px;
             }
 
-            /* Mobilde alanlar alt alta değil, sadece aktif olanlar görünür */
             .booking-form { 
                 grid-template-columns: 1fr; 
                 gap: 10px; 
             }
 
-            /* Mobil için Adım Ayarları (JS ile kontrol edilecek) */
             .mobile-hidden {
                 display: none !important;
             }
@@ -712,16 +729,16 @@
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <h1>R&L Royal Palace Hotel - Suıtes</h1>
+            <h1>R&L Royal Palace Hotel - Suites</h1>
             <p>Ankara Sincan'da Merkezi Lokasyonda Huzurlu ve Kusursuz Bir Konaklama Deneyimi</p>
         </div>
 
-        <!-- YENİ ADIMLI / GÖZ YORMAYAN MODÜL -->
+        <!-- REZERVASYON MODÜLÜ ALANI -->
         <div class="booking-wrapper">
             <!-- Formspree ID'nizi 'xxxxxxxx' kısmına eklemeyi unutmayın -->
             <form class="booking-form" action="https://formspree.io/f/xxxxxxxx" method="POST" id="reservation-form">
                 
-                <!-- ADIM 1: Sadece Tarihler (Göz yormayan minimalist alan) -->
+                <!-- ADIM 1: Tarihler -->
                 <div class="form-group">
                     <label>Giriş Tarihi</label>
                     <input type="date" name="Giris_Tarihi" required>
@@ -731,7 +748,7 @@
                     <input type="date" name="Cikis_Tarihi" required>
                 </div>
 
-                <!-- ADIM 2: Diğer Detaylar (Mobilde ilk başta gizli, tıklanınca açılır) -->
+                <!-- ADIM 2: Diğer Detaylar -->
                 <div class="form-step-2" id="step-2-container">
                     <div class="form-group">
                         <label>Oda Tipi</label>
@@ -760,12 +777,16 @@
                     </div>
                 </div>
 
-                <!-- Dinamik Buton Alanı -->
-                <div class="form-group" style="justify-content: flex-end;">
-                    <!-- Mobilde İlk Adım Butonu -->
-                    <button type="button" class="btn-submit" id="next-step-btn">Odaları Listele</button>
-                    <!-- Gerçek Gönderim Butonu (İlk başta mobilde gizli) -->
-                    <button type="submit" class="btn-submit" id="real-submit-btn">Talep Gönder</button>
+                <!-- Dinamik Buton Grubu Konteyneri -->
+                <div class="form-group">
+                    <div class="btn-container-group">
+                        <!-- Adım 1 Butonu -->
+                        <button type="button" class="btn-submit" id="next-step-btn">Odaları Listele</button>
+                        <!-- Gerçek Form Gönderme Butonu -->
+                        <button type="submit" class="btn-submit" id="real-submit-btn">Talep Gönder</button>
+                        <!-- Doğrudan Arama Butonu (7/24 Kesintisiz Hat) -->
+                        <a href="tel:+905404001406" class="btn-submit btn-call-direct"><i class="fa-solid fa-phone-flip"></i> 24 Saat Müşteri Hizmetleri - Hemen Ara</a>
+                    </div>
                 </div>
             </form>
         </div>
@@ -936,7 +957,6 @@
 
     <!-- Akıllı Form ve Menü Yönetimi Scripti -->
     <script>
-        // Menü Elemanları
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('#nav-menu a');
@@ -960,28 +980,23 @@
 
         function checkMobileResolution() {
             if (window.innerWidth <= 900) {
-                // Mobilde ilk başta ikinci adımı ve gerçek gönder butonunu gizle
                 step2Container.classList.add('mobile-hidden');
                 submitBtn.classList.add('mobile-hidden');
                 nextBtn.classList.remove('mobile-hidden');
             } else {
-                // Masaüstünde her şeyi serbest bırak (Yan yana şık dursunlar)
                 step2Container.classList.remove('mobile-hidden');
                 submitBtn.classList.remove('mobile-hidden');
                 nextBtn.classList.add('mobile-hidden');
             }
         }
 
-        // İlk açılışta ekran genişliğini denetle
         checkMobileResolution();
         window.addEventListener('resize', checkMobileResolution);
 
-        // "Odaları Listele" butonuna basıldığında tetiklenen akış
         nextBtn.addEventListener('click', () => {
-            // Animasyonlu bir şekilde ikinci adımı aç
             step2Container.classList.remove('mobile-hidden');
             submitBtn.classList.remove('mobile-hidden');
-            nextBtn.classList.add('mobile-hidden'); // Tarih onaylama butonunu gizle
+            nextBtn.classList.add('mobile-hidden'); 
         });
     </script>
 
