@@ -260,7 +260,6 @@
             border-color: var(--royal-gold);
         }
 
-        /* Dinamik Butonların Alanı */
         .btn-container-group {
             display: flex;
             flex-direction: column;
@@ -379,23 +378,95 @@
             box-shadow: 0 10px 30px rgba(202, 164, 97, 0.08);
         }
 
-        .room-img-container {
+        /* GELİŞMİŞ KAYDIRILABİLİR (CAROUSEL) TASARIMI */
+        .room-slider-container {
             height: 250px;
             width: 100%;
             overflow: hidden;
             position: relative;
         }
 
-        .room-img-container img {
-            width: 100%; height: 100%;
+        .room-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .room-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .room-slide img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
-        .room-img-container::after {
+        /* Alt Karartma Maskesi */
+        .room-slider-container::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, var(--card-dark));
+            bottom: 0; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(to bottom, transparent, var(--card-dark));
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Kaydırma Yön Okları (Masaüstü için) */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(202, 164, 97, 0.4);
+            color: var(--royal-gold);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--royal-gold);
+            color: var(--royal-dark);
+        }
+
+        .arrow-left { left: 10px; }
+        .arrow-right { right: 10px; }
+
+        /* Kaydırma İndikatör Noktaları */
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--royal-gold);
+            width: 20px;
+            border-radius: 4px;
         }
 
         .room-info {
@@ -691,6 +762,9 @@
             
             .royal-action-panel { bottom: 20px; right: 10px; gap: 8px; }
             .action-btn { width: 45px; height: 45px; font-size: 18px; }
+            
+            /* Mobilde slider oklarını kaldır, parmakla kaydırma (touch) aktif */
+            .slider-arrow { display: none !important; }
         }
     </style>
 </head>
@@ -729,16 +803,13 @@
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <h1>R&L Royal Palace Hotel - Suıtes</h1>
-            <p>Ankara Sincan'ın En Merkezi Lokasyonunda Huzurlu, Konforlu ve Kusursuz Bir Konaklama Deneyimi Sunuyoruz.</p>
+            <h1>R&L Royal Palace Hotel - Suites</h1>
+            <p>Ankara Sincan'da Merkezi Lokasyonda Huzurlu ve Kusursuz Bir Konaklama Deneyimi</p>
         </div>
 
         <!-- REZERVASYON MODÜLÜ ALANI -->
         <div class="booking-wrapper">
-            <!-- Formspree ID'nizi 'xxxxxxxx' kısmına eklemeyi unutmayın -->
-            <form class="booking-form" action="https://formspree.io/f/mrevyqjq" method="POST" id="reservation-form">
-                
-                <!-- ADIM 1: Tarihler -->
+            <form class="booking-form" action="https://formspree.io/f/xxxxxxxx" method="POST" id="reservation-form">
                 <div class="form-group">
                     <label>Giriş Tarihi</label>
                     <input type="date" name="Giris_Tarihi" required>
@@ -748,7 +819,6 @@
                     <input type="date" name="Cikis_Tarihi" required>
                 </div>
 
-                <!-- ADIM 2: Diğer Detaylar -->
                 <div class="form-step-2" id="step-2-container">
                     <div class="form-group">
                         <label>Oda Tipi</label>
@@ -777,15 +847,11 @@
                     </div>
                 </div>
 
-                <!-- Dinamik Buton Grubu Konteyneri -->
                 <div class="form-group">
                     <div class="btn-container-group">
-                        <!-- Adım 1 Butonu -->
                         <button type="button" class="btn-submit" id="next-step-btn">Odaları Listele</button>
-                        <!-- Gerçek Form Gönderme Butonu -->
                         <button type="submit" class="btn-submit" id="real-submit-btn">Talep Gönder</button>
-                        <!-- Doğrudan Arama Butonu (7/24 Kesintisiz Hat) -->
-                        <a href="tel:+905404001406" class="btn-submit btn-call-direct"><i class="fa-solid fa-phone-flip"></i> 7/24 Müşteri Hizmetlerini Ara</a>
+                        <a href="tel:+905404001406" class="btn-submit btn-call-direct"><i class="fa-solid fa-phone-flip"></i> 24 Saat Müşteri Hizmetleri - Hemen Ara</a>
                     </div>
                 </div>
             </form>
@@ -805,7 +871,7 @@
         </section>
     </div>
 
-    <!-- Odalarımız Bölümü -->
+    <!-- Odalarımız Bölümü (Gelişmiş Slider Modüllü) -->
     <section id="odalar">
         <div class="section-header">
             <h2 class="section-title">Konaklama Seçenekleri</h2>
@@ -813,9 +879,22 @@
         </div>
         
         <div class="grid-3">
-            <div class="room-card">
-                <div class="room-img-container">
-                    <img src="oda1.jpg" onerror="this.src='oda1.jpeg'; this.onerror=function(){this.src='oda1.png';};" alt="1+1 Suit Kral Dairesi">
+            
+            <!-- Oda 1 (1+1 Suit Kral Dairesi Galerisi) -->
+            <div class="room-card" id="room-suit">
+                <div class="room-slider-container">
+                    <div class="room-track">
+                        <div class="room-slide"><img src="suit1.jpg" onerror="this.src='suit1.jpeg'; this.onerror=function(){this.src='oda1.jpg';};" alt="Suit Görsel 1"></div>
+                        <div class="room-slide"><img src="suit2.jpg" onerror="this.src='suit2.jpeg'; this.onerror=function(){this.src='oda1.jpg';};" alt="Suit Görsel 2"></div>
+                        <div class="room-slide"><img src="suit3.jpg" onerror="this.src='suit3.jpeg'; this.onerror=function(){this.src='oda1.jpg';};" alt="Suit Görsel 3"></div>
+                    </div>
+                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-suit', -1)"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-suit', 1)"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-dots">
+                        <div class="dot active" onclick="setSliderSlide('room-suit', 0)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-suit', 1)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-suit', 2)"></div>
+                    </div>
                 </div>
                 <div class="room-info">
                     <h3>1+1 Suit Kral Dairesi</h3>
@@ -829,9 +908,21 @@
                 </div>
             </div>
 
-            <div class="room-card">
-                <div class="room-img-container">
-                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800" alt="Standart Deluxe Oda">
+            <!-- Oda 2 (Standart Deluxe Oda Galerisi) -->
+            <div class="room-card" id="room-deluxe">
+                <div class="room-slider-container">
+                    <div class="room-track">
+                        <div class="room-slide"><img src="deluxe1.jpg" onerror="this.src='deluxe1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Deluxe Görsel 1"></div>
+                        <div class="room-slide"><img src="deluxe2.jpg" onerror="this.src='deluxe2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Deluxe Görsel 2"></div>
+                        <div class="room-slide"><img src="deluxe3.jpg" onerror="this.src='deluxe3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Deluxe Görsel 3"></div>
+                    </div>
+                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-deluxe', -1)"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-deluxe', 1)"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-dots">
+                        <div class="dot active" onclick="setSliderSlide('room-deluxe', 0)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-deluxe', 1)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-deluxe', 2)"></div>
+                    </div>
                 </div>
                 <div class="room-info">
                     <h3>Standart Deluxe Oda</h3>
@@ -845,9 +936,21 @@
                 </div>
             </div>
 
-            <div class="room-card">
-                <div class="room-img-container">
-                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800" alt="Single Tek Kişilik Oda">
+            <!-- Oda 3 (Single Tek Kişilik Oda Galerisi) -->
+            <div class="room-card" id="room-single">
+                <div class="room-slider-container">
+                    <div class="room-track">
+                        <div class="room-slide"><img src="single1.jpg" onerror="this.src='single1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Single Görsel 1"></div>
+                        <div class="room-slide"><img src="single2.jpg" onerror="this.src='single2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Single Görsel 2"></div>
+                        <div class="room-slide"><img src="single3.jpg" onerror="this.src='single3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Single Görsel 3"></div>
+                    </div>
+                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-single', -1)"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-single', 1)"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-dots">
+                        <div class="dot active" onclick="setSliderSlide('room-single', 0)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-single', 1)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-single', 2)"></div>
+                    </div>
                 </div>
                 <div class="room-info">
                     <h3>Single Tek Kişilik Oda</h3>
@@ -955,8 +1058,9 @@
         </a>
     </div>
 
-    <!-- Akıllı Form ve Menü Yönetimi Scripti -->
+    <!-- SİTE FONKSİYONEL SCRIPT YAZILIMI -->
     <script>
+        // Menü Akışı
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('#nav-menu a');
@@ -973,7 +1077,7 @@
             });
         });
 
-        // ADIMLI MOBİL REZERVASYON FORMU SİHİRBAZI
+        // Adımlı Form Akışı
         const nextBtn = document.getElementById('next-step-btn');
         const submitBtn = document.getElementById('real-submit-btn');
         const step2Container = document.getElementById('step-2-container');
@@ -997,6 +1101,62 @@
             step2Container.classList.remove('mobile-hidden');
             submitBtn.classList.remove('mobile-hidden');
             nextBtn.classList.add('mobile-hidden'); 
+        });
+
+        // GELİŞMİŞ GALERİ SLIDER MEKANİZMASI (Kaydırma ve Parmak Hareketleri)
+        const sliderStates = {
+            'room-suit': { current: 0, total: 3 },
+            'room-deluxe': { current: 0, total: 3 },
+            'room-single': { current: 0, total: 3 }
+        };
+
+        function updateSliderDOM(roomId) {
+            const roomEl = document.getElementById(roomId);
+            const track = roomEl.querySelector('.room-track');
+            const dots = roomEl.querySelectorAll('.dot');
+            const index = sliderStates[roomId].current;
+
+            // Resmi kaydır
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            // Noktaları güncelle
+            dots.forEach((dot, idx) => {
+                if (index === idx) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+
+        function moveSlider(roomId, direction) {
+            let state = sliderStates[roomId];
+            state.current += direction;
+            if (state.current >= state.total) state.current = 0;
+            if (state.current < 0) state.current = state.total - 1;
+            updateSliderDOM(roomId);
+        }
+
+        function setSliderSlide(roomId, slideIndex) {
+            sliderStates[roomId].current = slideIndex;
+            updateSliderDOM(roomId);
+        }
+
+        // Mobilde Parmağı Sürükleyerek Kaydırma Altyapısı (Touch Support)
+        document.querySelectorAll('.room-slider-container').forEach(slider => {
+            const cardId = slider.closest('.room-card').id;
+            let startX = 0;
+            let endX = 0;
+
+            slider.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener('touchend', e => {
+                endX = e.changedTouches[0].clientX;
+                let diff = startX - endX;
+                if (Math.abs(diff) > 50) { // En az 50px sürüklenmişse kaydır
+                    if (diff > 0) moveSlider(cardId, 1);  // Sağa kaydır
+                    else moveSlider(cardId, -1);         // Sola kaydır
+                }
+            }, { passive: true });
         });
     </script>
 
