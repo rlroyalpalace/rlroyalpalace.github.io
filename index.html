@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&L Royal Palace Hotel | Sincan Otel, Eryaman Otel, Etimesgut Otel, Ankara Otel - Resmi Web Sitemiz</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome İkonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -302,7 +300,7 @@
 
         /* 👑 PC SÜRÜMDE "ODALARI LİSTELE" BUTONUNU GİZLEME AYARI */
         #next-step-btn {
-            display: none !important; /* Bilgisayarda varsayılan olarak tamamen gizlendi */
+            display: none !important; 
         }
 
         /* Ortak Bölümler */
@@ -762,7 +760,6 @@
 </head>
 <body>
 
-    <!-- Menü Başlangıcı -->
     <header>
         <a href="#" class="logo-container">
             <img src="logo.jpg" onerror="this.src='logo.jpeg'; this.onerror=function(){this.src='logo.png';};" alt="R&L Royal Palace Logo" class="hotel-logo-img">
@@ -787,7 +784,6 @@
         </nav>
     </header>
 
-    <!-- Giriş Alanı ve Rezervasyon Modülü -->
     <section class="hero" id="anasayfa" style="max-width: 100%; width: 100%;">
         <div class="hero-bg">
             <img src="oda1.jpg" onerror="this.src='oda1.jpeg'; this.onerror=function(){this.src='oda1.png';};" alt="R&L Royal Palace Oda">
@@ -799,7 +795,6 @@
             <p>Ankara Sincan'ın En Merkezi Lokasyonunda Huzurlu ve Kusursuz Bir Konaklama Deneyimi</p>
         </div>
 
-        <!-- REZERVASYON MODÜLÜ ALANI -->
         <div class="booking-wrapper">
             <form class="booking-form" action="https://formspree.io/f/xxxxxxxx" method="POST" id="reservation-form">
                 <div class="form-group">
@@ -842,7 +837,6 @@
 
                 <div class="form-group">
                     <div class="btn-container-group">
-                        <!-- Sadece Mobilde Görünecek İlk Adım Butonu -->
                         <button type="button" class="btn-submit" id="next-step-btn">Odaları Listele</button>
                         <button type="submit" class="btn-submit" id="real-submit-btn">Talep Gönder</button>
                         <a href="tel:+905404001406" class="btn-submit btn-call-direct"><i class="fa-solid fa-phone-flip"></i>  7/24 Müşteri Hizmetleri - Hızlı Ara</a>
@@ -852,7 +846,6 @@
         </div>
     </section>
 
-    <!-- Kurumsal Bölümü -->
     <div class="about-bg" id="kurumsal">
         <section>
             <div class="section-header">
@@ -865,7 +858,6 @@
         </section>
     </div>
 
-    <!-- Odalarımız Bölümü (Gelişmiş Slider Modüllü) -->
     <section id="odalar">
         <div class="section-header">
             <h2 class="section-title">Konaklama Seçenekleri</h2>
@@ -873,7 +865,6 @@
         </div>
         
         <div class="grid-3">
-            <!-- Oda 1 (1+1 Suit Kral Dairesi) -->
             <div class="room-card" id="room-suit">
                 <div class="room-slider-container">
                     <div class="room-track">
@@ -901,7 +892,6 @@
                 </div>
             </div>
 
-            <!-- Oda 2 (Standart Oda Model 1) -->
             <div class="room-card" id="room-model1">
                 <div class="room-slider-container">
                     <div class="room-track">
@@ -929,7 +919,6 @@
                 </div>
             </div>
 
-            <!-- Oda 3 (Standart Oda Model 2) -->
             <div class="room-card" id="room-model2">
                 <div class="room-slider-container">
                     <div class="room-track">
@@ -957,7 +946,6 @@
                 </div>
             </div>
 
-            <!-- Oda 4 (Standart Oda Model 3) -->
             <div class="room-card" id="room-model3">
                 <div class="room-slider-container">
                     <div class="room-track">
@@ -988,7 +976,6 @@
         </div>
     </section>
 
-    <!-- Hizmetler Bölümü -->
     <div class="services-bg" id="hizmetler">
         <section>
             <div class="section-header">
@@ -1005,7 +992,7 @@
                 <div class="service-box">
                     <i class="fa-solid fa-wifi"></i>
                     <h4>Yüksek Hızlı Fiber İnternet</h4>
-                    <p>İş seyahatleriniz and dijital dünyanız için tüm alanlarda kesintisiz yüksek hızlı Wi-Fi.</p>
+                    <p>İş seyahatleriniz ve dijital dünyanız için tüm alanlarda kesintisiz yüksek hızlı Wi-Fi.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-car"></i>
@@ -1031,7 +1018,6 @@
         </section>
     </div>
 
-    <!-- İletişim Bölümü -->
     <section id="iletisim">
         <div class="section-header">
             <h2 class="section-title">İletişim & Lokasyon</h2>
@@ -1044,7 +1030,7 @@
                 <p>Ankara Sincan'ın en merkezi lokasyonunda, yüksek standartlarda huzurlu ve konforlu bir konaklama deneyimi sunuyoruz.</p>
                 <p><i class="fa-solid fa-location-dot"></i> Tandoğan Mah. Zeki Uğur Cad. No:6-8 Sincan / Ankara</p>
                 <p><i class="fa-solid fa-phone"></i> +90 540 400 14 06</p>
-                <p><i class="fa-solid fa-envelope"></i> hnecli@rlroyalpalace.com</p>
+                <p><i class="fa-solid fa-envelope"></i> hasannecli@gmail.com</p>
                 <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" class="instagram-link">@rlc_royal_palace</a></p>
                 <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritalarda Yol Tarifi Al</a>
             </div>
@@ -1055,16 +1041,14 @@
         </div>
     </section>
 
-    <!-- Alt Alan (Footer) -->
     <footer>
         <div class="social-icons">
             <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://wa.me/905404001406" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <p>&copy; 2026 R&L Royal Palace Hotel&Suites - Tüm Hakları Saklıdır. Design By *necli* 0532 548 60 88</p>
+        <p>© 2026 R&L Royal Palace Hotel&Suites - Tüm Hakları Saklıdır. Design By *necli* 0532 548 60 88</p>
     </footer>
 
-    <!-- Sabit Erişim Paneli -->
     <div class="royal-action-panel">
         <a href="tel:+905404001406" class="action-btn btn-call" title="Telefon ile Ara">
             <i class="fa-solid fa-phone"></i>
@@ -1080,8 +1064,18 @@
         </a>
     </div>
 
-    <!-- SİTE FONKSİYONEL SCRIPT YAZILIMI -->
     <script>
+        // 🔒 AKILLI SAYFA YENİLEME KİLİDİ (Kodun en üstüne, hiçbir fonksiyona dokunmadan eklenmiştir)
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                history.replaceState("", document.title, window.location.pathname + window.location.search);
+            }
+            window.scrollTo(0, 0);
+        });
+
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('#nav-menu a');
@@ -1174,11 +1168,4 @@
                 let diff = startX - endX;
                 if (Math.abs(diff) > 50) { 
                     if (diff > 0) moveSlider(cardId, 1);  
-                    else moveSlider(cardId, -1);         
-                }
-            }, { passive: true });
-        });
-    </script>
-
-</body>
-</html>
+                    else moveSlider(card
