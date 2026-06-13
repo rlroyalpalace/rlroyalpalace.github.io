@@ -300,6 +300,11 @@
             color: var(--royal-dark);
         }
 
+        /* 👑 PC SÜRÜMDE "ODALARI LİSTELE" BUTONUNU GİZLEME AYARI */
+        #next-step-btn {
+            display: none !important; /* Bilgisayarda varsayılan olarak tamamen gizlendi */
+        }
+
         /* Ortak Bölümler */
         section {
             padding: 120px 20px;
@@ -666,7 +671,7 @@
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-map { background-color: #f44336; }
 
-        /* ULTRA MOBİL OPTİMİZASYON DEKLARASYONU */
+        /* 📱 MOBİL CİHAZLAR İÇİN ULTRA OPTİMİZASYON KURALLARI */
         @media (max-width: 900px) {
             .menu-toggle { display: flex; }
 
@@ -728,6 +733,11 @@
                 gap: 10px; 
             }
 
+            /* Mobilde adımlı formun çalışması için butonu geri getiriyoruz */
+            #next-step-btn {
+                display: block !important;
+            }
+
             .mobile-hidden {
                 display: none !important;
             }
@@ -786,7 +796,7 @@
         
         <div class="hero-content">
             <h1>R&L Royal Palace Hotel - Suıtes</h1>
-            <p>Ankara Sincan'da Merkezi Lokasyonda Huzurlu ve Kusursuz Bir Konaklama Deneyimi</p>
+            <p>Ankara Sincan'ın En Merkezi Lokasyonunda Huzurlu ve Kusursuz Bir Konaklama Deneyimi</p>
         </div>
 
         <!-- REZERVASYON MODÜLÜ ALANI -->
@@ -806,9 +816,9 @@
                         <label>Oda Tipi</label>
                         <select name="Oda_Tipi" required>
                             <option value="1+1 Suit Kral Dairesi">1+1 Suit Kral Dairesi</option>
-                            <option value="Standart Oda Model 1">Standart Oda Model 1</option>
-                            <option value="Standart Oda Model 2">Standart Oda Model 2</option>
-                            <option value="Standart Oda Model 3">Standart Oda Model 3</option>
+                            <option value="Standart Oda Model 1">Standart Oda - Model 1</option>
+                            <option value="Standart Oda Model 2">Standart Oda - Model 2</option>
+                            <option value="Standart Oda Model 3">Standart Oda - Model 3</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -832,6 +842,7 @@
 
                 <div class="form-group">
                     <div class="btn-container-group">
+                        <!-- Sadece Mobilde Görünecek İlk Adım Butonu -->
                         <button type="button" class="btn-submit" id="next-step-btn">Odaları Listele</button>
                         <button type="submit" class="btn-submit" id="real-submit-btn">Talep Gönder</button>
                         <a href="tel:+905404001406" class="btn-submit btn-call-direct"><i class="fa-solid fa-phone-flip"></i>  7/24 Müşteri Hizmetleri - Hızlı Ara</a>
@@ -845,7 +856,7 @@
     <div class="about-bg" id="kurumsal">
         <section>
             <div class="section-header">
-                <h2 class="section-title">Kurumsal</h2>
+                <h2 class="section-title">Hakkımızda</h2>
                 <p class="section-subtitle">Konforunuz Bizim İçin Önemli</p>
             </div>
             <div class="about-content">
@@ -907,7 +918,7 @@
                     </div>
                 </div>
                 <div class="room-info">
-                    <h3>Standart Oda Model 1</h3>
+                    <h3>Standart Oda - Model 1</h3>
                     <ul class="room-features-list">
                         <li><i class="fa-solid fa-tv"></i> Led TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
@@ -935,7 +946,7 @@
                     </div>
                 </div>
                 <div class="room-info">
-                    <h3>Standart Oda Model 2</h3>
+                    <h3>Standart Oda - Model 2</h3>
                     <ul class="room-features-list">
                         <li><i class="fa-solid fa-tv"></i> Led TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
@@ -963,7 +974,7 @@
                     </div>
                 </div>
                 <div class="room-info">
-                    <h3>Standart Oda Model 3</h3>
+                    <h3>Standart Oda - Model 3</h3>
                     <ul class="room-features-list">
                         <li><i class="fa-solid fa-tv"></i> Led TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
@@ -994,7 +1005,7 @@
                 <div class="service-box">
                     <i class="fa-solid fa-wifi"></i>
                     <h4>Yüksek Hızlı Fiber İnternet</h4>
-                    <p>İş seyahatleriniz ve dijital dünyanız için tüm alanlarda kesintisiz yüksek hızlı Wi-Fi.</p>
+                    <p>İş seyahatleriniz and dijital dünyanız için tüm alanlarda kesintisiz yüksek hızlı Wi-Fi.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-car"></i>
@@ -1014,7 +1025,7 @@
                 <div class="service-box">
                     <i class="fa-solid fa-tv"></i>
                     <h4>Led TV</h4>
-                    <p>Multimedya ve akıllı TV sistemleri sayesinde odanızda kesintisiz sinema ve eğlence keyfi.</p>
+                    <p>Multimedya and akıllı TV sistemleri sayesinde odanızda kesintisiz sinema ve eğlence keyfi.</p>
                 </div>
             </div>
         </section>
@@ -1029,13 +1040,13 @@
 
         <div class="contact-grid">
             <div class="contact-info">
-                <h3>Royal Palace Hotel&Suites</h3>
+                <h3>R&L Royal Palace Hotel&Suıtes</h3>
                 <p>Ankara Sincan'ın en merkezi lokasyonunda, yüksek standartlarda huzurlu ve konforlu bir konaklama deneyimi sunuyoruz.</p>
                 <p><i class="fa-solid fa-location-dot"></i> Tandoğan Mah. Zeki Uğur Cad. No:6-8 Sincan / Ankara</p>
                 <p><i class="fa-solid fa-phone"></i> +90 540 400 14 06</p>
-                <p><i class="fa-solid fa-envelope"></i> info@rlroyalpalace.com</p>
+                <p><i class="fa-solid fa-envelope"></i> hnecli@rlroyalpalace.com</p>
                 <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" class="instagram-link">@rlc_royal_palace</a></p>
-                <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritada Yol Tarifi Al</a>
+                <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritalarda Yol Tarifi Al</a>
             </div>
             
             <div class="map-container">
@@ -1093,10 +1104,12 @@
 
         function checkMobileResolution() {
             if (window.innerWidth <= 900) {
+                // Sadece mobilde dikey kısıtlama kurallarını çalıştır
                 step2Container.classList.add('mobile-hidden');
                 submitBtn.classList.add('mobile-hidden');
                 nextBtn.classList.remove('mobile-hidden');
             } else {
+                // Bilgisayarda her şey açık ve serbest (Odaları listele butonu CSS ile zaten gizli)
                 step2Container.classList.remove('mobile-hidden');
                 submitBtn.classList.remove('mobile-hidden');
                 nextBtn.classList.add('mobile-hidden');
@@ -1112,7 +1125,7 @@
             nextBtn.classList.add('mobile-hidden'); 
         });
 
-        // REVIZE EDİLEN 4 ODALI GALERİ SLIDER MEKANİZMASI
+        // 4 ODALI GALERİ SLIDER MEKANİZMASI
         const sliderStates = {
             'room-suit': { current: 0, total: 3 },
             'room-model1': { current: 0, total: 3 },
