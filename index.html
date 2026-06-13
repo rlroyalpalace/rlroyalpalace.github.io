@@ -360,27 +360,13 @@
         /* Grid Sistemi */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        /* Odalar Bölümü */
-        .room-card {
-            background: var(--card-dark);
-            border: 1px solid rgba(202, 164, 97, 0.15);
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .room-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--royal-gold);
-            box-shadow: 0 10px 30px rgba(202, 164, 97, 0.08);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         /* GELİŞMİŞ KAYDIRILABİLİR (CAROUSEL) TASARIMI */
         .room-slider-container {
-            height: 250px;
+            height: 230px;
             width: 100%;
             overflow: hidden;
             position: relative;
@@ -405,7 +391,6 @@
             object-fit: cover;
         }
 
-        /* Alt Karartma Maskesi */
         .room-slider-container::after {
             content: '';
             position: absolute;
@@ -415,7 +400,6 @@
             pointer-events: none;
         }
 
-        /* Kaydırma Yön Okları (Masaüstü için) */
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -443,7 +427,6 @@
         .arrow-left { left: 10px; }
         .arrow-right { right: 10px; }
 
-        /* Kaydırma İndikatör Noktaları */
         .slider-dots {
             position: absolute;
             bottom: 15px;
@@ -470,12 +453,12 @@
         }
 
         .room-info {
-            padding: 35px;
+            padding: 25px;
         }
 
         .room-info h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 18px;
+            margin-bottom: 15px;
             color: #ffffff;
             font-weight: 500;
         }
@@ -487,7 +470,7 @@
         }
 
         .room-features-list li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
         }
@@ -763,7 +746,6 @@
             .royal-action-panel { bottom: 20px; right: 10px; gap: 8px; }
             .action-btn { width: 45px; height: 45px; font-size: 18px; }
             
-            /* Mobilde slider oklarını kaldır, parmakla kaydırma (touch) aktif */
             .slider-arrow { display: none !important; }
         }
     </style>
@@ -824,8 +806,9 @@
                         <label>Oda Tipi</label>
                         <select name="Oda_Tipi" required>
                             <option value="1+1 Suit Kral Dairesi">1+1 Suit Kral Dairesi</option>
-                            <option value="Standart Deluxe Oda">Standart Deluxe Oda</option>
-                            <option value="Single Tek Kişilik Oda">Single Tek Kişilik Oda</option>
+                            <option value="Standart Oda Model 1">Standart Oda Model 1</option>
+                            <option value="Standart Oda Model 2">Standart Oda Model 2</option>
+                            <option value="Standart Oda Model 3">Standart Oda Model 3</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -866,7 +849,7 @@
                 <p class="section-subtitle">Konforunuz Bizim İçin Önemli</p>
             </div>
             <div class="about-content">
-                R&L Royal Palace Otel&Suites Olarak, Ankara Sincan İlçesinin En Merkezi Lokasyonunda Bulunan 40 Odalı Otelimizde Profesyonel ve Güler Yüzlü Kadromuzla Birlikte Müşteri Memnuniyetini En Ciddi Şekilde Önemseyerek Uzun Yıllardır Hizmet Vermekteyiz. Otelimizde 7/24 Resepsiyon, Uyandırma Servisi, Destek ve Asistanlık Hizneti, Tüm Odalarımızda Ücretsiz Yüksek Hızlı Wifi İnternet, Led Televizyon, Netflix, Android Tv, Klima, Su Isıtıcı ve Çay Kahve, Mini Buzdolabı Bulunmaktadır.
+                R&L Royal Palace Otel&Suites Olarak, Ankara Sincan İlçesinin En Merkezi Lokasyonunda Bulunan 40 Odalı Otelimizde Profesyonel ve Güler Yüzlü Kadromuzla Birlikte Müşteri Memnuniyetini En Ciddi Şekilde Önemseyerek Uzun Yıllardır Hizmet Vermekteyiz. Otelimizde 7/24 Resepsiyon, Uyandırma Servisi, Destek ve Asistanlık Hizneti, Tüm Odalarımızda Ücretsiz Yüksek Hızlı Wifi İnternet, Led Televizyon, Klima, Su Isıtıcı ve Çay Kahve, Mini Buzdolabı Bulunmaktadır.
             </div>
         </section>
     </div>
@@ -879,8 +862,7 @@
         </div>
         
         <div class="grid-3">
-            
-            <!-- Oda 1 (1+1 Suit Kral Dairesi Galerisi) -->
+            <!-- Oda 1 (1+1 Suit Kral Dairesi) -->
             <div class="room-card" id="room-suit">
                 <div class="room-slider-container">
                     <div class="room-track">
@@ -899,7 +881,7 @@
                 <div class="room-info">
                     <h3>1+1 Suit Kral Dairesi</h3>
                     <ul class="room-features-list">
-                        <li><i class="fa-solid fa-tv"></i> Led Android TV & Netflix</li>
+                        <li><i class="fa-solid fa-tv"></i> Led TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Mini Buzdolabı</li>
                         <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
                         <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
@@ -908,26 +890,26 @@
                 </div>
             </div>
 
-            <!-- Oda 2 (Standart Deluxe Oda Galerisi) -->
-            <div class="room-card" id="room-deluxe">
+            <!-- Oda 2 (Standart Oda Model 1) -->
+            <div class="room-card" id="room-model1">
                 <div class="room-slider-container">
                     <div class="room-track">
-                        <div class="room-slide"><img src="deluxe1.jpg" onerror="this.src='deluxe1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Deluxe Görsel 1"></div>
-                        <div class="room-slide"><img src="deluxe2.jpg" onerror="this.src='deluxe2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Deluxe Görsel 2"></div>
-                        <div class="room-slide"><img src="deluxe3.jpg" onerror="this.src='deluxe3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Deluxe Görsel 3"></div>
+                        <div class="room-slide"><img src="model1_1.jpg" onerror="this.src='model1_1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Model 1 Görsel 1"></div>
+                        <div class="room-slide"><img src="model1_2.jpg" onerror="this.src='model1_2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Model 1 Görsel 2"></div>
+                        <div class="room-slide"><img src="model1_3.jpg" onerror="this.src='model1_3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800';};" alt="Model 1 Görsel 3"></div>
                     </div>
-                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-deluxe', -1)"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-deluxe', 1)"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-model1', -1)"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-model1', 1)"><i class="fa-solid fa-chevron-right"></i></div>
                     <div class="slider-dots">
-                        <div class="dot active" onclick="setSliderSlide('room-deluxe', 0)"></div>
-                        <div class="dot" onclick="setSliderSlide('room-deluxe', 1)"></div>
-                        <div class="dot" onclick="setSliderSlide('room-deluxe', 2)"></div>
+                        <div class="dot active" onclick="setSliderSlide('room-model1', 0)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-model1', 1)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-model1', 2)"></div>
                     </div>
                 </div>
                 <div class="room-info">
-                    <h3>Standart Deluxe Oda</h3>
+                    <h3>Standart Oda Model 1</h3>
                     <ul class="room-features-list">
-                        <li><i class="fa-solid fa-tv"></i> Led Android TV & Netflix</li>
+                        <li><i class="fa-solid fa-tv"></i> Led TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
                         <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
                         <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
@@ -936,26 +918,26 @@
                 </div>
             </div>
 
-            <!-- Oda 3 (Single Tek Kişilik Oda Galerisi) -->
-            <div class="room-card" id="room-single">
+            <!-- Oda 3 (Standart Oda Model 2) -->
+            <div class="room-card" id="room-model2">
                 <div class="room-slider-container">
                     <div class="room-track">
-                        <div class="room-slide"><img src="single1.jpg" onerror="this.src='single1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Single Görsel 1"></div>
-                        <div class="room-slide"><img src="single2.jpg" onerror="this.src='single2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Single Görsel 2"></div>
-                        <div class="room-slide"><img src="single3.jpg" onerror="this.src='single3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Single Görsel 3"></div>
+                        <div class="room-slide"><img src="model2_1.jpg" onerror="this.src='model2_1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Model 2 Görsel 1"></div>
+                        <div class="room-slide"><img src="model2_2.jpg" onerror="this.src='model2_2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Model 2 Görsel 2"></div>
+                        <div class="room-slide"><img src="model2_3.jpg" onerror="this.src='model2_3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800';};" alt="Model 2 Görsel 3"></div>
                     </div>
-                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-single', -1)"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-single', 1)"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-model2', -1)"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-model2', 1)"><i class="fa-solid fa-chevron-right"></i></div>
                     <div class="slider-dots">
-                        <div class="dot active" onclick="setSliderSlide('room-single', 0)"></div>
-                        <div class="dot" onclick="setSliderSlide('room-single', 1)"></div>
-                        <div class="dot" onclick="setSliderSlide('room-single', 2)"></div>
+                        <div class="dot active" onclick="setSliderSlide('room-model2', 0)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-model2', 1)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-model2', 2)"></div>
                     </div>
                 </div>
                 <div class="room-info">
-                    <h3>Single Tek Kişilik Oda</h3>
+                    <h3>Standart Oda Model 2</h3>
                     <ul class="room-features-list">
-                        <li><i class="fa-solid fa-tv"></i> Led Android TV & Netflix</li>
+                        <li><i class="fa-solid fa-tv"></i> Led TV</li>
                         <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
                         <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
                         <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
@@ -963,6 +945,35 @@
                     <a href="#anasayfa" class="btn-room">Rezervasyon Yap</a>
                 </div>
             </div>
+
+            <!-- Oda 4 (Standart Oda Model 3) -->
+            <div class="room-card" id="room-model3">
+                <div class="room-slider-container">
+                    <div class="room-track">
+                        <div class="room-slide"><img src="model3_1.jpg" onerror="this.src='model3_1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800';};" alt="Model 3 Görsel 1"></div>
+                        <div class="room-slide"><img src="model3_2.jpg" onerror="this.src='model3_2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800';};" alt="Model 3 Görsel 2"></div>
+                        <div class="room-slide"><img src="model3_3.jpg" onerror="this.src='model3_3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800';};" alt="Model 3 Görsel 3"></div>
+                    </div>
+                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-model3', -1)"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-model3', 1)"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-dots">
+                        <div class="dot active" onclick="setSliderSlide('room-model3', 0)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-model3', 1)"></div>
+                        <div class="dot" onclick="setSliderSlide('room-model3', 2)"></div>
+                    </div>
+                </div>
+                <div class="room-info">
+                    <h3>Standart Oda Model 3</h3>
+                    <ul class="room-features-list">
+                        <li><i class="fa-solid fa-tv"></i> Led TV</li>
+                        <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
+                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
+                        <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
+                    </ul>
+                    <a href="#anasayfa" class="btn-room">Rezervasyon Yap</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1002,8 +1013,8 @@
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-tv"></i>
-                    <h4>Android Led TV & Netflix</h4>
-                    <p>Multimedya ve akıllı android TV sistemleri sayesinde odanızda kesintisiz sinema ve eğlence keyfi.</p>
+                    <h4>Led TV</h4>
+                    <p>Multimedya ve akıllı TV sistemleri sayesinde odanızda kesintisiz sinema ve eğlence keyfi.</p>
                 </div>
             </div>
         </section>
@@ -1022,9 +1033,9 @@
                 <p>Ankara Sincan'ın en merkezi lokasyonunda, yüksek standartlarda huzurlu ve konforlu bir konaklama deneyimi sunuyoruz.</p>
                 <p><i class="fa-solid fa-location-dot"></i> Tandoğan Mah. Zeki Uğur Cad. No:6-8 Sincan / Ankara</p>
                 <p><i class="fa-solid fa-phone"></i> +90 540 400 14 06</p>
-                <p><i class="fa-solid fa-envelope"></i> necli@rlroyalpalace.com</p>
+                <p><i class="fa-solid fa-envelope"></i> info@rlroyalpalace.com</p>
                 <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" class="instagram-link">@rlc_royal_palace</a></p>
-                <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritalarda Yol Tarifi Al</a>
+                <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritada Yol Tarifi Al</a>
             </div>
             
             <div class="map-container">
@@ -1060,7 +1071,6 @@
 
     <!-- SİTE FONKSİYONEL SCRIPT YAZILIMI -->
     <script>
-        // Menü Akışı
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('#nav-menu a');
@@ -1077,7 +1087,6 @@
             });
         });
 
-        // Adımlı Form Akışı
         const nextBtn = document.getElementById('next-step-btn');
         const submitBtn = document.getElementById('real-submit-btn');
         const step2Container = document.getElementById('step-2-container');
@@ -1103,11 +1112,12 @@
             nextBtn.classList.add('mobile-hidden'); 
         });
 
-        // GELİŞMİŞ GALERİ SLIDER MEKANİZMASI (Kaydırma ve Parmak Hareketleri)
+        // REVIZE EDİLEN 4 ODALI GALERİ SLIDER MEKANİZMASI
         const sliderStates = {
             'room-suit': { current: 0, total: 3 },
-            'room-deluxe': { current: 0, total: 3 },
-            'room-single': { current: 0, total: 3 }
+            'room-model1': { current: 0, total: 3 },
+            'room-model2': { current: 0, total: 3 },
+            'room-model3': { current: 0, total: 3 }
         };
 
         function updateSliderDOM(roomId) {
@@ -1116,10 +1126,8 @@
             const dots = roomEl.querySelectorAll('.dot');
             const index = sliderStates[roomId].current;
 
-            // Resmi kaydır
             track.style.transform = `translateX(-${index * 100}%)`;
 
-            // Noktaları güncelle
             dots.forEach((dot, idx) => {
                 if (index === idx) dot.classList.add('active');
                 else dot.classList.remove('active');
@@ -1139,7 +1147,6 @@
             updateSliderDOM(roomId);
         }
 
-        // Mobilde Parmağı Sürükleyerek Kaydırma Altyapısı (Touch Support)
         document.querySelectorAll('.room-slider-container').forEach(slider => {
             const cardId = slider.closest('.room-card').id;
             let startX = 0;
@@ -1152,9 +1159,9 @@
             slider.addEventListener('touchend', e => {
                 endX = e.changedTouches[0].clientX;
                 let diff = startX - endX;
-                if (Math.abs(diff) > 50) { // En az 50px sürüklenmişse kaydır
-                    if (diff > 0) moveSlider(cardId, 1);  // Sağa kaydır
-                    else moveSlider(cardId, -1);         // Sola kaydır
+                if (Math.abs(diff) > 50) { 
+                    if (diff > 0) moveSlider(cardId, 1);  
+                    else moveSlider(cardId, -1);         
                 }
             }, { passive: true });
         });
