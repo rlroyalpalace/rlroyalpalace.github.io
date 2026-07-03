@@ -1068,4 +1068,118 @@
     </footer>
 
     <div class="royal-action-panel">
-        <a href="tel:+905404
+        <a href="tel:+905404001406" class="action-btn btn-call" title="Telefon ile Ara">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/905404001406?text=Merhaba,%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" class="action-btn btn-whatsapp" target="_blank" title="WhatsApp Mesaj Gönder">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/rlc_royal_palace" class="action-btn btn-instagram" target="_blank" title="Instagram Sayfamız">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" class="action-btn btn-map" target="_blank" title="Yol Tarifi Al">
+            <i class="fa-solid fa-location-dot"></i>
+        </a>
+    </div>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        const nextBtn = document.getElementById('next-step-btn');
+        const submitBtn = document.getElementById('real-submit-btn');
+        const step2Container = document.getElementById('step-2-container');
+
+        function checkMobileResolution() {
+            if (window.innerWidth <= 900) {
+                // Sadece mobilde dikey kısıtlama kurallarını çalıştır
+                step2Container.classList.add('mobile-hidden');
+                submitBtn.classList.add('mobile-hidden');
+                nextBtn.classList.remove('mobile-hidden');
+            } else {
+                // Bilgisayarda her şey açık ve serbest (Odaları listele butonu CSS ile zaten gizli)
+                step2Container.classList.remove('mobile-hidden');
+                submitBtn.classList.remove('mobile-hidden');
+                nextBtn.classList.add('mobile-hidden');
+            }
+        }
+
+        checkMobileResolution();
+        window.addEventListener('resize', checkMobileResolution);
+
+        nextBtn.addEventListener('click', () => {
+            step2Container.classList.remove('mobile-hidden');
+            submitBtn.classList.remove('mobile-hidden');
+            nextBtn.classList.add('mobile-hidden'); 
+        });
+
+        // 4 ODALI GALERİ SLIDER MEKANİZMASI
+        const sliderStates = {
+            'room-suit': { current: 0, total: 3 },
+            'room-model1': { current: 0, total: 3 },
+            'room-model2': { current: 0, total: 3 },
+            'room-model3': { current: 0, total: 3 }
+        };
+
+        function updateSliderDOM(roomId) {
+            const roomEl = document.getElementById(roomId);
+            const track = roomEl.querySelector('.room-track');
+            const dots = roomEl.querySelectorAll('.dot');
+            const index = sliderStates[roomId].current;
+
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach((dot, idx) => {
+                if (index === idx) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+
+        function moveSlider(roomId, direction) {
+            let state = sliderStates[roomId];
+            state.current += direction;
+            if (state.current >= state.total) state.current = 0;
+            if (state.current < 0) state.current = state.total - 1;
+            updateSliderDOM(roomId);
+        }
+
+        function setSliderSlide(roomId, slideIndex) {
+            sliderStates[roomId].current = slideIndex;
+            updateSliderDOM(roomId);
+        }
+
+        document.querySelectorAll('.room-slider-container').forEach(slider => {
+            const cardId = slider.closest('.room-card').id;
+            let startX = 0;
+            let endX = 0;
+
+            slider.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener('touchend', e => {
+                endX = e.changedTouches[0].clientX;
+                let diff = startX - endX;
+                if (Math.abs(diff) > 50) { 
+                    if (diff > 0) moveSlider(cardId, 1);  
+                    else moveSlider(cardId, -1);         
+                }
+            }, { passive: true });
+        });
+    </script>
+
+</body>
+</html>
