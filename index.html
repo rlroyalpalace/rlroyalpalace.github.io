@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
-
-<link rel="icon" href="logo.jpg" type="image/jpeg">
-
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&L Royal Palace Hotel | Sincan Otel, Eryaman Otel, Etimesgut Otel, Ankara Otel - Resmi Web Sitemiz</title>
     
-    <meta name="description" content="Ankara Sincan'da lüks, konforlu ve güvenli konaklama. R&L Royal Palace Otel modern odaları, merkezi konumu ve uygun fiyatları ile hizmetinizdedir. Hemen rezervasyon yapın.">
-    <meta name="keywords" content="sincan otel, sincan konaklama, ankara sincan otelleri, eryaman otel, etimesgut otel, ankara otel, sincan uygun otel, r&l royal palace, sincan günlük konaklama, sincan otel fiyatları">
+    <meta name="description" content="Ankara Sincan'da lüks, konforlu ve güvenli konaklama. R&L Royal Palace Otel modern odaları, merkezi konumu and uygun fiyatları ile hizmetinizdedir. Hemen rezervasyon yapın.">
+    <meta name="keywords" content="sincan otel, sincan konaklama, ankara sincan otelleri, sincan uygun otel, eryaman otel, etimesgut otel, ankara otel, r&l royal palace, sincan günlük konaklama, sincan otel fiyatları">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://sincanotel.com/">
@@ -23,8 +19,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sincanotel.com/">
     <meta property="og:title" content="R&L Royal Palace Hotel | Sincan Otel - Resmi Web Sitemiz">
-    <meta property="og:description" content="Ankara Sincan'da lüks, konforlu ve güvenli konaklama deneyimi. En uygun fiyatlarla oda rezervasyonu için hemen ulaşın.">
+    <meta property="og:description" content="Ankara Sincan'da lüks, konforlu and güvenli konaklama deneyimi. En uygun fiyatlarla oda rezervasyonu için hemen ulaşın.">
     <meta property="og:image" content="logo.jpg">
+    
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -691,6 +689,57 @@
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-map { background-color: #f44336; }
 
+        /* 👑 LIGHTBOX GÖRSEL BÜYÜTME MODAL STİLLERİ */
+        .royal-lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.96);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .royal-lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .royal-lightbox-content {
+            max-width: 90%;
+            max-height: 85%;
+            border: 1px solid var(--royal-gold);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            object-fit: contain;
+            transform: scale(0.92);
+            transition: transform 0.3s ease;
+        }
+        
+        .royal-lightbox.active .royal-lightbox-content {
+            transform: scale(1);
+        }
+        
+        .royal-lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: var(--royal-gold);
+            font-size: 38px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s;
+            user-select: none;
+        }
+        
+        .royal-lightbox-close:hover {
+            color: #ffffff;
+        }
+
         /* 📱 MOBİL CİHAZLAR İÇİN ULTRA OPTİMİZASYON KURALLARI */
         @media (max-width: 900px) {
             .menu-toggle { display: flex; }
@@ -1086,6 +1135,11 @@
         </a>
     </div>
 
+    <div id="royal-lightbox-modal" class="royal-lightbox" onclick="closeRoyalLightbox()">
+        <span class="royal-lightbox-close" onclick="closeRoyalLightbox()">&times;</span>
+        <img id="royal-lightbox-img" class="royal-lightbox-content" src="" alt="Büyütülmüş Oda Görseli">
+    </div>
+
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
@@ -1183,6 +1237,23 @@
                 }
             }, { passive: true });
         });
+
+        // 👑 LIGHTBOX BÜYÜTME MEKANİZMASI SCRIPT YAZILIMI
+        const royalLightboxModal = document.getElementById('royal-lightbox-modal');
+        const royalLightboxImg = document.getElementById('royal-lightbox-img');
+
+        document.querySelectorAll('.room-slide img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                royalLightboxImg.src = img.src;
+                royalLightboxModal.classList.add('active');
+            });
+        });
+
+        function closeRoyalLightbox() {
+            royalLightboxModal.classList.remove('active');
+        }
     </script>
 
 </body>
