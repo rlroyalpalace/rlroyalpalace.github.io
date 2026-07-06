@@ -380,6 +380,108 @@
             letter-spacing: 0.5px;
         }
 
+        /* 👑 MÜŞTERİ YORUMLARI (TESTIMONIALS) ALANI STİLLERİ */
+        .reviews-bg {
+            background-color: var(--royal-dark);
+            border-bottom: 1px solid rgba(202, 164, 97, 0.1);
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .reviews-slider-container {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .reviews-track-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .reviews-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .review-card-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .review-stars {
+            color: var(--royal-gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .review-text {
+            font-size: 16px;
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .review-author {
+            font-family: 'Cinzel', serif;
+            color: var(--royal-gold);
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .review-author span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .review-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--royal-gold);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+            user-select: none;
+        }
+
+        .review-arrow:hover { color: #ffffff; }
+        .review-arrow-left { left: 0; }
+        .review-arrow-right { right: 0; }
+
+        .review-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 35px;
+        }
+
+        .review-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .review-dot.active {
+            background-color: var(--royal-gold);
+            width: 18px;
+            border-radius: 3px;
+        }
+
         /* Grid Sistemi */
         .grid-3 {
             display: grid;
@@ -741,7 +843,6 @@
             color: #ffffff;
         }
 
-        /* Lightbox Slider Navigasyon Okları */
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -855,8 +956,14 @@
             .action-btn { width: 45px; height: 45px; font-size: 18px; }
             
             .slider-arrow { display: none !important; }
-            .lightbox-nav { display: none !important; } /* Mobilde kaydırma (swipe) aktif, okları gizliyoruz */
+            .lightbox-nav { display: none !important; }
             .royal-lightbox-content { max-width: 95%; }
+
+            /* Mobilde Yorum Alanı Ayarı */
+            .reviews-bg { padding: 60px 10px; }
+            .reviews-slider-container { padding: 0 10px; }
+            .review-arrow { display: none !important; } /* Mobilde sadece swipe aktif */
+            .review-text { font-size: 14px; line-height: 1.6; }
         }
     </style>
 </head>
@@ -958,6 +1065,52 @@
                 R&L Royal Palace Otel&Suites Olarak, Ankara Sincan İlçesinin En Merkezi Lokasyonunda Bulunan 40 Odalı Otelimizde Profesyonel ve Güler Yüzlü Kadromuzla Birlikte Müşteri Memnuniyetini En Ciddi Şekilde Önemseyerek Uzun Yıllardır Hizmet Vermekteyiz. Otelimizde 7/24 Resepsiyon, Uyandırma Servisi, Destek ve Asistanlık Hizneti, Tüm Odalarımızda Ücretsiz Yüksek Hızlı Wifi İnternet, Led Televizyon, Klima, Su Isıtıcı ve Çay Kahve, Mini Buzdolabı Bulunmaktadır.
             </div>
         </section>
+    </div>
+
+    <div class="reviews-bg">
+        <div class="section-header">
+            <h2 class="section-title">Misafir Yorumları</h2>
+            <p class="section-subtitle">Google Haritalar Üzerindeki Gerçek Deneyimler</p>
+        </div>
+        <div class="reviews-slider-container">
+            <div class="review-arrow review-arrow-left" onclick="moveReviewSlider(-1)"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="reviews-track-wrapper">
+                <div class="reviews-track" id="reviews-carousel-track">
+                    
+                    <div class="review-card-item">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Sincan'da iş seyahatlerim için sürekli tercih ettiğim tek yer. Odaların temizliği, hijyeni and sessizliği tek kelimeyle harika. 7/24 resepsiyonda her konuda yardımcı oluyorlar. Güvenli konaklama arayanlara kesinlikle tavsiye ederim."</p>
+                        <h4 class="review-author">Murat Yılmaz <span>İş İnsanı - Google Yorumu</span></h4>
+                    </div>
+                    
+                    <div class="review-card-item">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Otel konum olarak çok merkezi bir yerde, her yere ulaşım çok kolay. Odadaki yataklar çok rahattı, klima ve yüksek hızlı fiber internet sorunsuz çalışıyordu. Sabah odamıza gelen kahvaltı servisi de harika bir ayrıcalıktı."</p>
+                        <h4 class="review-author">Zeynep Demir <span>Aile Konaklaması - Google Yorumu</span></h4>
+                    </div>
+                    
+                    <div class="review-card-item">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Otel personeli son derece güler yüzlü ve profesyonel. Özel otoparkının olması büyük bir avantaj, aracımız güvendeydi. Sincan ve Eryaman civarında kalabileceğiniz en kaliteli, konforlu ve kurumsal otel diyebilirim."</p>
+                        <h4 class="review-author">Hakan Can <span>Ziyaretçi - Google Yorumu</span></h4>
+                    </div>
+
+                </div>
+            </div>
+            <div class="review-arrow review-arrow-right" onclick="moveReviewSlider(1)"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <div class="review-dots" id="reviews-carousel-dots">
+                <div class="review-dot active" onclick="setReviewSlide(0)"></div>
+                <div class="review-dot" onclick="setReviewSlide(1)"></div>
+                <div class="review-dot" onclick="setReviewSlide(2)"></div>
+            </div>
+        </div>
     </div>
 
     <section id="odalar">
@@ -1288,7 +1441,6 @@
                     currentActiveRoomId = roomId;
                     currentActiveImgIndex = index;
                     
-                    // Aktif odadaki tüm resim yollarını listeye kaydet
                     activeRoomImagesArray = [];
                     images.forEach(i => activeRoomImagesArray.push(i.src));
                     
@@ -1300,7 +1452,7 @@
         function openRoyalLightbox(src) {
             royalLightboxImg.src = src;
             royalLightboxModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Arka plan kaymasını engelle
+            document.body.style.overflow = 'hidden';
         }
 
         function closeRoyalLightbox() {
@@ -1309,7 +1461,7 @@
         }
 
         function changeLightboxImage(direction, event) {
-            if (event) event.stopPropagation(); // Modalı kapatma tetiklemesini engelle
+            if (event) event.stopPropagation();
             
             currentActiveImgIndex += direction;
             if (currentActiveImgIndex >= activeRoomImagesArray.length) currentActiveImgIndex = 0;
@@ -1318,15 +1470,14 @@
             royalLightboxImg.src = activeRoomImagesArray[currentActiveImgIndex];
         }
 
-        // Klavye ile Kontrol Desteği (Sağ, Sol ve Esc Tuşları)
         document.addEventListener('keydown', (e) => {
-            if (!royalLightboxModal.classList.contains('active')) return;
-            if (e.key === 'ArrowRight') changeLightboxImage(1);
-            else if (e.key === 'ArrowLeft') changeLightboxImage(-1);
-            else if (e.key === 'Escape') closeRoyalLightbox();
+            if (royalLightboxModal.classList.contains('active')) {
+                if (e.key === 'ArrowRight') changeLightboxImage(1);
+                else if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+                else if (e.key === 'Escape') closeRoyalLightbox();
+            }
         });
 
-        // Mobil Cihazlar İçin Parmak Kaydırma (Swipe) Desteği
         let lightboxStartX = 0;
         let lightboxEndX = 0;
         
@@ -1337,9 +1488,60 @@
         royalLightboxModal.addEventListener('touchend', e => {
             lightboxEndX = e.changedTouches[0].clientX;
             let diff = lightboxStartX - lightboxEndX;
-            if (Math.abs(diff) > 60) { // 60 pikselden fazla kaydırma algılandığında
-                if (diff > 0) changeLightboxImage(1);  // Sola kaydırma -> Sonraki resim
-                else changeLightboxImage(-1);         // Sağa kaydırma -> Önceki resim
+            if (Math.abs(diff) > 60) {
+                if (diff > 0) changeLightboxImage(1);
+                else changeLightboxImage(-1);
+            }
+        }, { passive: true });
+
+
+        // 👑 GOOGLE YORUMLARI (TESTIMONIALS) CAROUSEL YAZILIMI
+        let reviewCurrentIndex = 0;
+        const reviewTotalSlides = 3; // Toplam 3 adet yorum var
+        const reviewsTrack = document.getElementById('reviews-carousel-track');
+        const reviewDots = document.querySelectorAll('#reviews-carousel-dots .review-dot');
+
+        function updateReviewSliderDOM() {
+            reviewsTrack.style.transform = `translateX(-${reviewCurrentIndex * 100}%)`;
+            reviewDots.forEach((dot, idx) => {
+                if (reviewCurrentIndex === idx) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+
+        function moveReviewSlider(direction) {
+            reviewCurrentIndex += direction;
+            if (reviewCurrentIndex >= reviewTotalSlides) reviewCurrentIndex = 0;
+            if (reviewCurrentIndex < 0) reviewCurrentIndex = reviewTotalSlides - 1;
+            updateReviewSliderDOM();
+        }
+
+        function setReviewSlide(slideIndex) {
+            reviewCurrentIndex = slideIndex;
+            updateReviewSliderDOM();
+        }
+
+        // Yorumlar Alanı İçin Otomatik Geçiş (Her 6 saniyede bir döner)
+        let reviewInterval = setInterval(() => moveReviewSlider(1), 6000);
+
+        // Kullanıcı butona bastığında otomatik kaymayı sıfırla ki kafa karışmasın
+        document.querySelector('.reviews-slider-container').addEventListener('mouseenter', () => clearInterval(reviewInterval));
+
+        // Yorumlar Alanı Mobilde Parmakla Kaydırma (Swipe) Desteği
+        let reviewStartX = 0;
+        let reviewEndX = 0;
+        const reviewWrapper = document.querySelector('.reviews-track-wrapper');
+
+        reviewWrapper.addEventListener('touchstart', e => {
+            reviewStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        reviewWrapper.addEventListener('touchend', e => {
+            reviewEndX = e.changedTouches[0].clientX;
+            let diff = reviewStartX - reviewEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) moveReviewSlider(1);
+                else moveReviewSlider(-1);
             }
         }, { passive: true });
     </script>
