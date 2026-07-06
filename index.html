@@ -384,8 +384,10 @@
         .reviews-bg {
             background-color: var(--royal-dark);
             border-bottom: 1px solid rgba(202, 164, 97, 0.1);
+            border-top: 1px solid rgba(202, 164, 97, 0.1);
             padding: 100px 20px;
             overflow: hidden;
+            max-width: 100%;
         }
 
         .reviews-slider-container {
@@ -962,8 +964,8 @@
             /* Mobilde Yorum Alanı Ayarı */
             .reviews-bg { padding: 60px 10px; }
             .reviews-slider-container { padding: 0 10px; }
-            .review-arrow { display: none !important; } /* Mobilde sadece swipe aktif */
-            .review-text { font-size: 14px; line-height: 1.6; }
+            .review-arrow { display: none !important; }
+            .review-text { font-size: 14px; line-6: 1.6; }
         }
     </style>
 </head>
@@ -1065,52 +1067,6 @@
                 R&L Royal Palace Otel&Suites Olarak, Ankara Sincan İlçesinin En Merkezi Lokasyonunda Bulunan 40 Odalı Otelimizde Profesyonel ve Güler Yüzlü Kadromuzla Birlikte Müşteri Memnuniyetini En Ciddi Şekilde Önemseyerek Uzun Yıllardır Hizmet Vermekteyiz. Otelimizde 7/24 Resepsiyon, Uyandırma Servisi, Destek ve Asistanlık Hizneti, Tüm Odalarımızda Ücretsiz Yüksek Hızlı Wifi İnternet, Led Televizyon, Klima, Su Isıtıcı ve Çay Kahve, Mini Buzdolabı Bulunmaktadır.
             </div>
         </section>
-    </div>
-
-    <div class="reviews-bg">
-        <div class="section-header">
-            <h2 class="section-title">Misafir Yorumları</h2>
-            <p class="section-subtitle">Google Haritalar Üzerindeki Gerçek Deneyimler</p>
-        </div>
-        <div class="reviews-slider-container">
-            <div class="review-arrow review-arrow-left" onclick="moveReviewSlider(-1)"><i class="fa-solid fa-chevron-left"></i></div>
-            <div class="reviews-track-wrapper">
-                <div class="reviews-track" id="reviews-carousel-track">
-                    
-                    <div class="review-card-item">
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="review-text">"Sincan'da iş seyahatlerim için sürekli tercih ettiğim tek yer. Odaların temizliği, hijyeni and sessizliği tek kelimeyle harika. 7/24 resepsiyonda her konuda yardımcı oluyorlar. Güvenli konaklama arayanlara kesinlikle tavsiye ederim."</p>
-                        <h4 class="review-author">Murat Yılmaz <span>İş İnsanı - Google Yorumu</span></h4>
-                    </div>
-                    
-                    <div class="review-card-item">
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="review-text">"Otel konum olarak çok merkezi bir yerde, her yere ulaşım çok kolay. Odadaki yataklar çok rahattı, klima ve yüksek hızlı fiber internet sorunsuz çalışıyordu. Sabah odamıza gelen kahvaltı servisi de harika bir ayrıcalıktı."</p>
-                        <h4 class="review-author">Zeynep Demir <span>Aile Konaklaması - Google Yorumu</span></h4>
-                    </div>
-                    
-                    <div class="review-card-item">
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="review-text">"Otel personeli son derece güler yüzlü ve profesyonel. Özel otoparkının olması büyük bir avantaj, aracımız güvendeydi. Sincan ve Eryaman civarında kalabileceğiniz en kaliteli, konforlu ve kurumsal otel diyebilirim."</p>
-                        <h4 class="review-author">Hakan Can <span>Ziyaretçi - Google Yorumu</span></h4>
-                    </div>
-
-                </div>
-            </div>
-            <div class="review-arrow review-arrow-right" onclick="moveReviewSlider(1)"><i class="fa-solid fa-chevron-right"></i></div>
-            
-            <div class="review-dots" id="reviews-carousel-dots">
-                <div class="review-dot active" onclick="setReviewSlide(0)"></div>
-                <div class="review-dot" onclick="setReviewSlide(1)"></div>
-                <div class="review-dot" onclick="setReviewSlide(2)"></div>
-            </div>
-        </div>
     </div>
 
     <section id="odalar">
@@ -1247,7 +1203,7 @@
                 <div class="service-box">
                     <i class="fa-solid fa-wifi"></i>
                     <h4>Yüksek Hızlı Fiber İnternet</h4>
-                    <p>İş seyahatleriniz and dijital dünyanız için tüm alanlarda kesintisiz yüksek hızlı Wi-Fi.</p>
+                    <p>İş seyahatleriniz and dijital dünyanız için tüm alanlarda kesintisiz yüksek speeds Wi-Fi.</p>
                 </div>
                 <div class="service-box">
                     <i class="fa-solid fa-car"></i>
@@ -1271,6 +1227,52 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <div class="reviews-bg">
+        <div class="section-header">
+            <h2 class="section-title">Misafir Yorumları</h2>
+            <p class="section-subtitle">Google Haritalar Üzerindeki Gerçek Deneyimler</p>
+        </div>
+        <div class="reviews-slider-container">
+            <div class="review-arrow review-arrow-left" onclick="moveReviewSlider(-1)"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="reviews-track-wrapper">
+                <div class="reviews-track" id="reviews-carousel-track">
+                    
+                    <div class="review-card-item">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Sincan'da iş seyahatlerim için sürekli tercih ettiğim tek yer. Odaların temizliği, hijyeni and sessizliği tek kelimeyle harika. 7/24 resepsiyonda her konuda yardımcı oluyorlar. Güvenli konaklama arayanlara kesinlikle tavsiye ederim."</p>
+                        <h4 class="review-author">Murat Yılmaz <span>İş İnsanı - Google Yorumu</span></h4>
+                    </div>
+                    
+                    <div class="review-card-item">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Otel konum olarak çok merkezi bir yerde, her yere ulaşım çok kolay. Odadaki yataklar çok rahattı, klima ve yüksek hızlı fiber internet sorunsuz çalışıyordu. Sabah odamıza gelen kahvaltı servisi de harika bir ayrıcalıktı."</p>
+                        <h4 class="review-author">Zeynep Demir <span>Aile Konaklaması - Google Yorumu</span></h4>
+                    </div>
+                    
+                    <div class="review-card-item">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Otel personeli son derece güler yüzlü ve profesyonel. Özel otoparkının olması büyük bir avantaj, aracımız güvendeydi. Sincan ve Eryaman civarında kalabileceğiniz en kaliteli, konforlu ve kurumsal otel diyebilirim."</p>
+                        <h4 class="review-author">Hakan Can <span>Ziyaretçi - Google Yorumu</span></h4>
+                    </div>
+
+                </div>
+            </div>
+            <div class="review-arrow review-arrow-right" onclick="moveReviewSlider(1)"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <div class="review-dots" id="reviews-carousel-dots">
+                <div class="review-dot active" onclick="setReviewSlide(0)"></div>
+                <div class="review-dot" onclick="setReviewSlide(1)"></div>
+                <div class="review-dot" onclick="setReviewSlide(2)"></div>
+            </div>
+        </div>
     </div>
 
     <section id="iletisim">
@@ -1497,7 +1499,7 @@
 
         // 👑 GOOGLE YORUMLARI (TESTIMONIALS) CAROUSEL YAZILIMI
         let reviewCurrentIndex = 0;
-        const reviewTotalSlides = 3; // Toplam 3 adet yorum var
+        const reviewTotalSlides = 3; 
         const reviewsTrack = document.getElementById('reviews-carousel-track');
         const reviewDots = document.querySelectorAll('#reviews-carousel-dots .review-dot');
 
@@ -1521,13 +1523,10 @@
             updateReviewSliderDOM();
         }
 
-        // Yorumlar Alanı İçin Otomatik Geçiş (Her 6 saniyede bir döner)
         let reviewInterval = setInterval(() => moveReviewSlider(1), 6000);
 
-        // Kullanıcı butona bastığında otomatik kaymayı sıfırla ki kafa karışmasın
         document.querySelector('.reviews-slider-container').addEventListener('mouseenter', () => clearInterval(reviewInterval));
 
-        // Yorumlar Alanı Mobilde Parmakla Kaydırma (Swipe) Desteği
         let reviewStartX = 0;
         let reviewEndX = 0;
         const reviewWrapper = document.querySelector('.reviews-track-wrapper');
