@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&L Royal Palace Hotel | Sincan Otel, Eryaman Otel, Etimesgut Otel, Ankara Otel - Resmi Web Sitemiz</title>
     
-    <meta name="description" content="Ankara Sincan'da lüks, konforlu ve güvenli konaklama. R&L Royal Palace Otel modern odaları, merkezi konumu and uygun fiyatları ile hizmetinizdedir. Hemen rezervasyon yapın.">
-    <meta name="keywords" content="sincan otel, sincan konaklama, ankara sincan otelleri, sincan uygun otel, eryaman otel, etimesgut otel, ankara otel, r&l royal palace, sincan günlük konaklama, sincan otel fiyatları">
+    <meta name="description" content="Ankara Sincan'da lüks, konforlu ve güvenli konaklama. R&L Royal Palace Otel modern odaları, merkezi konumu ve uygun fiyatları ile hizmetinizdedir. Hemen rezervasyon yapın.">
+    <meta name="keywords" content="sincan otel, sincan konaklama, ankara sincan otelleri, eryaman otel, etimesgut otel, ankara otel, sincan uygun otel, r&l royal palace, sincan günlük konaklama, sincan otel fiyatları">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://sincanotel.com/">
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sincanotel.com/">
     <meta property="og:title" content="R&L Royal Palace Hotel | Sincan Otel - Resmi Web Sitemiz">
-    <meta property="og:description" content="Ankara Sincan'da lüks, konforlu and güvenli konaklama deneyimi. En uygun fiyatlarla oda rezervasyonu için hemen ulaşın.">
+    <meta property="og:description" content="Ankara Sincan'da lüks, konforlu ve güvenli konaklama deneyimi. En uygun fiyatlarla oda rezervasyonu için hemen ulaşın.">
     <meta property="og:image" content="logo.jpg">
     
     <link rel="icon" href="logo.jpg" type="image/jpeg">
@@ -698,11 +698,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 10, 10, 0.96);
+            background-color: rgba(10, 10, 10, 0.97);
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            user-select: none;
         }
         
         .royal-lightbox.active {
@@ -711,7 +712,7 @@
         }
         
         .royal-lightbox-content {
-            max-width: 90%;
+            max-width: 85%;
             max-height: 85%;
             border: 1px solid var(--royal-gold);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
@@ -733,12 +734,41 @@
             font-weight: 300;
             cursor: pointer;
             transition: color 0.3s;
-            user-select: none;
+            z-index: 100000;
         }
         
         .royal-lightbox-close:hover {
             color: #ffffff;
         }
+
+        /* Lightbox Slider Navigasyon Okları */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--royal-gold);
+            font-size: 32px;
+            background: rgba(15, 15, 15, 0.6);
+            border: 1px solid rgba(202, 164, 97, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 100000;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--royal-gold);
+            color: var(--royal-dark);
+            border-color: var(--royal-gold);
+        }
+
+        .lightbox-prev { left: 30px; }
+        .lightbox-next { right: 30px; }
 
         /* 📱 MOBİL CİHAZLAR İÇİN ULTRA OPTİMİZASYON KURALLARI */
         @media (max-width: 900px) {
@@ -802,7 +832,6 @@
                 gap: 10px; 
             }
 
-            /* Mobilde adımlı formun çalışması için butonu geri getiriyoruz */
             #next-step-btn {
                 display: block !important;
             }
@@ -826,6 +855,8 @@
             .action-btn { width: 45px; height: 45px; font-size: 18px; }
             
             .slider-arrow { display: none !important; }
+            .lightbox-nav { display: none !important; } /* Mobilde kaydırma (swipe) aktif, okları gizliyoruz */
+            .royal-lightbox-content { max-width: 95%; }
         }
     </style>
 </head>
@@ -1022,239 +1053,4 @@
                     <div class="room-track">
                         <div class="room-slide"><img src="model3_1.jpg" onerror="this.src='model3_1.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800';};" alt="Model 3 Görsel 1"></div>
                         <div class="room-slide"><img src="model3_2.jpg" onerror="this.src='model3_2.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800';};" alt="Model 3 Görsel 2"></div>
-                        <div class="room-slide"><img src="model3_3.jpg" onerror="this.src='model3_3.jpeg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800';};" alt="Model 3 Görsel 3"></div>
-                    </div>
-                    <div class="slider-arrow arrow-left" onclick="moveSlider('room-model3', -1)"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="slider-arrow arrow-right" onclick="moveSlider('room-model3', 1)"><i class="fa-solid fa-chevron-right"></i></div>
-                    <div class="slider-dots">
-                        <div class="dot active" onclick="setSliderSlide('room-model3', 0)"></div>
-                        <div class="dot" onclick="setSliderSlide('room-model3', 1)"></div>
-                        <div class="dot" onclick="setSliderSlide('room-model3', 2)"></div>
-                    </div>
-                </div>
-                <div class="room-info">
-                    <h3>Standart Oda - Model 3</h3>
-                    <ul class="room-features-list">
-                        <li><i class="fa-solid fa-tv"></i> Led TV</li>
-                        <li><i class="fa-solid fa-snowflake"></i> Klima & Buzdolabı</li>
-                        <li><i class="fa-solid fa-mug-hot"></i> Su Isıtıcı, Çay & Kahve İkramı</li>
-                        <li><i class="fa-solid fa-wifi"></i> Yüksek Hızlı Fiber Wi-Fi</li>
-                    </ul>
-                    <a href="#anasayfa" class="btn-room">Rezervasyon Yap</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <div class="services-bg" id="hizmetler">
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">Seçkin Hizmetlerimiz</h2>
-                <p class="section-subtitle">Konaklamanızı unutulmaz kılacak ayrıcalıklarla hizmetinizdeyiz</p>
-            </div>
-            
-            <div class="grid-3">
-                <div class="service-box">
-                    <i class="fa-solid fa-utensils"></i>
-                    <h4>Odaya Kahvaltı Servisi</h4>
-                    <p>Güne zinde ve konforlu başlamanız için özenle hazırlanan kahvaltınız odanıza ücretsiz olarak ulaştırılır.</p>
-                </div>
-                <div class="service-box">
-                    <i class="fa-solid fa-wifi"></i>
-                    <h4>Yüksek Hızlı Fiber İnternet</h4>
-                    <p>İş seyahatleriniz and dijital dünyanız için tüm alanlarda kesintisiz yüksek hızlı Wi-Fi.</p>
-                </div>
-                <div class="service-box">
-                    <i class="fa-solid fa-car"></i>
-                    <h4>Özel Otopark Alanı</h4>
-                    <p>Güvenlik sistemiyle donatılmış otoparkımız sayesinde siz dinlenirken aracınız her zaman emniyette olsun.</p>
-                </div>
-                <div class="service-box">
-                    <i class="fa-solid fa-bell"></i>
-                    <h4>7/24 Resepsiyon & Uyandırma</h4>
-                    <p>Günün her saati kesintisiz hizmet sunan ekibimiz hazır, randevularınızı kaçırmamanız için profesyonel asistanlık ve destek hizmeti.</p>
-                </div>
-                <div class="service-box">
-                    <i class="fa-solid fa-snowflake"></i>
-                    <h4>Kusursuz İklimlendirme</h4>
-                    <p>Tüm odalarda yer alan sessiz ve modern klimalar ile odanızın sıcaklığı tamamen sizin kontrolünüzde olsun.</p>
-                </div>
-                <div class="service-box">
-                    <i class="fa-solid fa-tv"></i>
-                    <h4>Led TV</h4>
-                    <p>Multimedya and akıllı TV sistemleri sayesinde odanızda kesintisiz sinema ve eğlence keyfi.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <section id="iletisim">
-        <div class="section-header">
-            <h2 class="section-title">İletişim & Lokasyon</h2>
-            <p class="section-subtitle">Huzur ve Konfora Davetlisiniz</p>
-        </div>
-
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>R&L Royal Palace Hotel&Suıtes</h3>
-                <p>Ankara Sincan'ın en merkezi lokasyonunda, yüksek standartlarda huzurlu ve konforlu bir konaklama deneyimi sunuyoruz.</p>
-                <p><i class="fa-solid fa-location-dot"></i> Tandoğan Mah. Zeki Uğur Cad. No:6 Sincan / Ankara</p>
-                <p><i class="fa-solid fa-phone"></i> +90 540 400 14 06</p>
-                <p><i class="fa-solid fa-envelope"></i> sincanroyalpalace06@hotmail.com</p>
-                <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" class="instagram-link">@rlc_royal_palace</a></p>
-                <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritalarda Yol Tarifi Al</a>
-            </div>
-            
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.8837370836526!2d32.57688!3d39.96675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDU4JzAwLjMiTiAzMsKwMzQnMzYuOCJF!5e0!3m2!1str!2str!4v1717770000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/905404001406" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-        <p>© 2026 R&L Royal Palace Hotel&Suites - Tüm Hakları Saklıdır. Design By *necli* 0532 548 60 88</p>
-    </footer>
-
-    <div class="royal-action-panel">
-        <a href="tel:+905404001406" class="action-btn btn-call" title="Telefon ile Ara">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-        <a href="https://wa.me/905404001406?text=Merhaba,%20rezervasyon%20hakkında%20bilgi%20alabilir%20miyim?" class="action-btn btn-whatsapp" target="_blank" title="WhatsApp Mesaj Gönder">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="https://www.instagram.com/rlc_royal_palace" class="action-btn btn-instagram" target="_blank" title="Instagram Sayfamız">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" class="action-btn btn-map" target="_blank" title="Yol Tarifi Al">
-            <i class="fa-solid fa-location-dot"></i>
-        </a>
-    </div>
-
-    <div id="royal-lightbox-modal" class="royal-lightbox" onclick="closeRoyalLightbox()">
-        <span class="royal-lightbox-close" onclick="closeRoyalLightbox()">&times;</span>
-        <img id="royal-lightbox-img" class="royal-lightbox-content" src="" alt="Büyütülmüş Oda Görseli">
-    </div>
-
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('#nav-menu a');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        const nextBtn = document.getElementById('next-step-btn');
-        const submitBtn = document.getElementById('real-submit-btn');
-        const step2Container = document.getElementById('step-2-container');
-
-        function checkMobileResolution() {
-            if (window.innerWidth <= 900) {
-                // Sadece mobilde dikey kısıtlama kurallarını çalıştır
-                step2Container.classList.add('mobile-hidden');
-                submitBtn.classList.add('mobile-hidden');
-                nextBtn.classList.remove('mobile-hidden');
-            } else {
-                // Bilgisayarda her şey açık ve serbest (Odaları listele butonu CSS ile zaten gizli)
-                step2Container.classList.remove('mobile-hidden');
-                submitBtn.classList.remove('mobile-hidden');
-                nextBtn.classList.add('mobile-hidden');
-            }
-        }
-
-        checkMobileResolution();
-        window.addEventListener('resize', checkMobileResolution);
-
-        nextBtn.addEventListener('click', () => {
-            step2Container.classList.remove('mobile-hidden');
-            submitBtn.classList.remove('mobile-hidden');
-            nextBtn.classList.add('mobile-hidden'); 
-        });
-
-        // 4 ODALI GALERİ SLIDER MEKANİZMASI
-        const sliderStates = {
-            'room-suit': { current: 0, total: 3 },
-            'room-model1': { current: 0, total: 3 },
-            'room-model2': { current: 0, total: 3 },
-            'room-model3': { current: 0, total: 3 }
-        };
-
-        function updateSliderDOM(roomId) {
-            const roomEl = document.getElementById(roomId);
-            const track = roomEl.querySelector('.room-track');
-            const dots = roomEl.querySelectorAll('.dot');
-            const index = sliderStates[roomId].current;
-
-            track.style.transform = `translateX(-${index * 100}%)`;
-
-            dots.forEach((dot, idx) => {
-                if (index === idx) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
-        }
-
-        function moveSlider(roomId, direction) {
-            let state = sliderStates[roomId];
-            state.current += direction;
-            if (state.current >= state.total) state.current = 0;
-            if (state.current < 0) state.current = state.total - 1;
-            updateSliderDOM(roomId);
-        }
-
-        function setSliderSlide(roomId, slideIndex) {
-            sliderStates[roomId].current = slideIndex;
-            updateSliderDOM(roomId);
-        }
-
-        document.querySelectorAll('.room-slider-container').forEach(slider => {
-            const cardId = slider.closest('.room-card').id;
-            let startX = 0;
-            let endX = 0;
-
-            slider.addEventListener('touchstart', e => {
-                startX = e.touches[0].clientX;
-            }, { passive: true });
-
-            slider.addEventListener('touchend', e => {
-                endX = e.changedTouches[0].clientX;
-                let diff = startX - endX;
-                if (Math.abs(diff) > 50) { 
-                    if (diff > 0) moveSlider(cardId, 1);  
-                    else moveSlider(cardId, -1);         
-                }
-            }, { passive: true });
-        });
-
-        // 👑 LIGHTBOX BÜYÜTME MEKANİZMASI SCRIPT YAZILIMI
-        const royalLightboxModal = document.getElementById('royal-lightbox-modal');
-        const royalLightboxImg = document.getElementById('royal-lightbox-img');
-
-        document.querySelectorAll('.room-slide img').forEach(img => {
-            img.style.cursor = 'pointer';
-            img.addEventListener('click', (e) => {
-                e.stopPropagation();
-                royalLightboxImg.src = img.src;
-                royalLightboxModal.classList.add('active');
-            });
-        });
-
-        function closeRoyalLightbox() {
-            royalLightboxModal.classList.remove('active');
-        }
-    </script>
-
-</body>
-</html>
+                        <div class="room-slide"><img src="model3_3.jpg" onerror="this.src='model3_3.jpeg'; this.onerror=function(){this.src='
