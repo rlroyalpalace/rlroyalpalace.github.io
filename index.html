@@ -32,6 +32,7 @@
     <meta property="og:description" content="Ankara Sincan'da lüks, konforlu ve güvenli konaklama deneyimi. En uygun fiyatlarla oda rezervasyonu için hemen ulaşın.">
     <meta property="og:image" content="logo.jpg">
     
+    <!-- 👑 GOOGLE ARAMALARINDA GRİ DÜNYA YERİNE LOGONUN GELMESİNİ SAĞLAYAN YENİ FAVICON ENTEGRASYONU -->
     <link rel="icon" href="favicon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -390,7 +391,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* 👑 MÜŞTERİ YORUMLARI (TESTIMONIALS) ALANI STİLLERİ */
+        /* 👑 MÜŞTERI YORUMLARI (TESTIMONIALS) ALANI STİLLERİ */
         .reviews-bg {
             background-color: var(--royal-dark);
             border-bottom: 1px solid rgba(202, 164, 97, 0.1);
@@ -975,7 +976,23 @@
             .reviews-bg { padding: 60px 10px; }
             .reviews-slider-container { padding: 0 10px; }
             .review-arrow { display: none !important; }
-            .review-text { font-size: 14px; line-6: 1.6; }
+            .review-text { font-size: 14px; line-height: 1.6; }
+        }
+
+        /* 👑 MOBİL AKICI KAYDIRMA (SCROLL REVEAL) CSS ENTEGRASYONU */
+        @media (max-width: 900px) {
+            .scroll-reveal-active {
+                opacity: 0 !important;
+                transform: translateY(25px) !important;
+                transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                            transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+                will-change: transform, opacity;
+            }
+
+            .scroll-reveal-visible {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
         }
     </style>
 </head>
@@ -1298,6 +1315,7 @@
                 <p><i class="fa-solid fa-location-dot"></i> Tandoğan Mah. Zeki Uğur Cad. No:6 Sincan / Ankara</p>
                 <p><i class="fa-solid fa-phone"></i> +90 540 400 14 06</p>
                 <p><i class="fa-solid fa-envelope"></i> sincanroyalpalace06@hotmail.com</p>
+                <p><i class="fa-solid fa-envelope"></i> hasannecli@gmail.com</p>
                 <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/rlc_royal_palace" target="_blank" class="instagram-link">@rlc_royal_palace</a></p>
                 <a href="https://maps.app.goo.gl/bzfgpWWWK8iAdmWj6" target="_blank" class="btn-direction"><i class="fa-solid fa-map"></i> Google Haritalarda Yol Tarifi Al</a>
             </div>
@@ -1553,6 +1571,41 @@
                 else moveReviewSlider(-1);
             }
         }, { passive: true });
+
+
+        // 👑 MOBİL AKICI SCROLL REVEAL KAYDIRMA YAZILIMI (HTML DEĞİŞTİRMEDEN DİNAMİK OLARAK ÇALIŞIR)
+        document.addEventListener("DOMContentLoaded", function () {
+            // Sadece mobil cihazlarda (900px ve altı genişliklerde) çalıştırır
+            if (window.innerWidth <= 900) {
+                // Sitenin ana yapı elemanlarını, oda kartlarını ve detay kutularını seçiyoruz
+                const elementsToAnimate = document.querySelectorAll(
+                    "#kurumsal section, .about-content, .room-card, .service-box, .reviews-slider-container, .contact-info, .map-container"
+                );
+
+                // Animasyon hazırlığı için elemanlara başlangıç gizlilik sınıflarını ekle
+                elementsToAnimate.forEach((el) => {
+                    el.classList.add("scroll-reveal-active");
+                });
+
+                // Modern ve performans dostu Intersection Observer API ile takip mekanizması
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "0px 0px -40px 0px", // Mobilde eleman ekrana girmeden 40px önce tetikler
+                    threshold: 0.05
+                };
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("scroll-reveal-visible");
+                            observer.unobserve(entry.target); // Animasyon tetiklendikten sonra takibi bırakarak performansı korur
+                        }
+                    });
+                }, observerOptions);
+
+                elementsToAnimate.forEach((el) => observer.observe(el));
+            }
+        });
     </script>
 
 </body>
