@@ -1573,24 +1573,24 @@
         }, { passive: true });
 
 
-        // 👑 MOBİL AKICI SCROLL REVEAL KAYDIRMA YAZILIMI (HTML DEĞİŞTİRMEDEN DİNAMİK OLARAK ÇALIŞIR)
+     
         document.addEventListener("DOMContentLoaded", function () {
-            // Sadece mobil cihazlarda (900px ve altı genişliklerde) çalıştırır
+          
             if (window.innerWidth <= 900) {
-                // Sitenin ana yapı elemanlarını, oda kartlarını ve detay kutularını seçiyoruz
+                
                 const elementsToAnimate = document.querySelectorAll(
                     "#kurumsal section, .about-content, .room-card, .service-box, .reviews-slider-container, .contact-info, .map-container"
                 );
 
-                // Animasyon hazırlığı için elemanlara başlangıç gizlilik sınıflarını ekle
+               
                 elementsToAnimate.forEach((el) => {
                     el.classList.add("scroll-reveal-active");
                 });
 
-                // Modern ve performans dostu Intersection Observer API ile takip mekanizması
+                
                 const observerOptions = {
                     root: null,
-                    rootMargin: "0px 0px -40px 0px", // Mobilde eleman ekrana girmeden 40px önce tetikler
+                    rootMargin: "0px 0px -40px 0px", 
                     threshold: 0.05
                 };
 
@@ -1598,7 +1598,7 @@
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add("scroll-reveal-visible");
-                            observer.unobserve(entry.target); // Animasyon tetiklendikten sonra takibi bırakarak performansı korur
+                            observer.unobserve(entry.target); 
                         }
                     });
                 }, observerOptions);
@@ -1606,6 +1606,70 @@
                 elementsToAnimate.forEach((el) => observer.observe(el));
             }
         });
+
+document.addEventListener("DOMContentLoaded", function () {
+   
+    const seoStyle = document.createElement('style');
+    seoStyle.innerHTML = `
+        .seo-footer-block {
+            text-align: center;
+            padding: 35px 20px 15px 20px;
+            background-color: #050505;
+            border-top: 1px solid rgba(202, 164, 97, 0.15);
+        }
+        .seo-footer-title {
+            font-family: 'Cinzel', serif;
+            color: var(--royal-gold, #caa461);
+            font-size: 15px;
+            letter-spacing: 3px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .seo-footer-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .seo-footer-item {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        .seo-footer-item:hover {
+            color: var(--royal-gold, #caa461);
+            transform: translateY(-1px);
+        }
+    `;
+    document.head.appendChild(seoStyle);
+
+  
+    const footerElement = document.querySelector('footer');
+    if (footerElement) {
+        const seoContainer = document.createElement('div');
+        seoContainer.className = 'seo-footer-block';
+        seoContainer.innerHTML = `
+            <div class="seo-footer-title">BÖLGE & HİZMET SAYFALARI</div>
+            <div class="seo-footer-list">
+                <a href="#anasayfa" class="seo-footer-item">Sincan Otel</a>
+                <a href="#anasayfa" class="seo-footer-item">Sincan Otelleri</a>
+                <a href="#anasayfa" class="seo-footer-item">Sincan Otel Fiyatları</a>
+                <a href="#anasayfa" class="seo-footer-item">Sincan Konaklama</a>
+                <a href="#anasayfa" class="seo-footer-item">Eryaman Otel</a>
+                <a href="#anasayfa" class="seo-footer-item">Etimesgut Otel</a>
+                <a href="#anasayfa" class="seo-footer-item">Sincan Apart</a>
+                <a href="#anasayfa" class="seo-footer-item">Sincan Pansiyon</a>
+            </div>
+        `;
+        
+        footerElement.insertBefore(seoContainer, footerElement.firstChild);
+    }
+});
+        
     </script>
 
 </body>
